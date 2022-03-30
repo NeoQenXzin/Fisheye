@@ -5,22 +5,32 @@ class PhotographerFactory{
         }
     }
     
+    // Je construit mon template main page index
     photographerFactory(data) {
         // que signifie exactement cette syntaxe?
-        const { name, portrait } = data;
+        const { name, portrait, country, tagline, price } = data;
         
         const picture = `assets/photographers/photo-id/${portrait}`;
         
         function getUserCardDOM() {
             const article = document.createElement( 'article' );
-            const img = document.createElement( 'img' );
-            img.setAttribute("src", picture)
-            const h2 = document.createElement( 'h2' );
-            h2.textContent = name;
-            article.appendChild(img);
-            article.appendChild(h2);
+            article.innerHTML =
+                 `
+                    <a class="lien-profile" href="#">
+                        <div class="article-index">
+                        <img src="${picture}"></img>
+                        <h2> ${name} </h2>
+                        </div>
+                    </a>
+                    <div class="article-index">
+                        <div class="country">${country}</div>
+                        <div class="tagline">${tagline}</div>
+                        <div class="price">${price}€/jour</div>
+                    </div>
+                `;
+
             return (article);
     }
-    return { name, picture, getUserCardDOM }
+    return { name, picture, tagline, price, country, getUserCardDOM }
 }
 }

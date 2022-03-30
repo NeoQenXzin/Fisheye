@@ -15,55 +15,22 @@
             // console.log(Photographers);
 
             // Ma const ou je vais ecrire le html en js
-            const photographersSection = document.querySelector(".photographer_section")
+            const photographersSection = document.querySelector(".photographer-section")
 
             Photographers.forEach(photographe => {
                 // console.log(photographe);
 
-                const Template = new PhotographerFactory(photographe)
-                Template.photographerFactory(photographe)
+                const Template = new PhotographerFactory()
+                // Template.photographerFactory(photographe)
                 // console.log(Template.photographerFactory(photographe));
 
                 const photographerModel = Template.photographerFactory(photographe);
                 const userCardDOM = photographerModel.getUserCardDOM();
                 photographersSection.appendChild(userCardDOM);
             })
-            
-            // console.log({
-            //     Photographers: [...Photographers]
-            // })
-            // return ({
-            //     Photographers: [...Photographers]
-            // })
 
         }
-
-        async displayData(Photographers) {
-            const photographersSection = document.querySelector(".photographer_section")
-
-            Photographers.forEach((photographer) => {
-                const photographerModel = photographerFactory(photographer);
-                const userCardDOM = photographerModel.getUserCardDOM();
-                photographersSection.appendChild(userCardDOM);
-            })
-            console.log(displayData());
-        }
-
-        async init() {
-            // Récupère les datas des photographes
-            const {
-                Photographers
-            } = await getPhotographer()
-            displayData(Photographers)
-        }
-
-
 
     }
-
-
     const app = new App()
     app.getPhotographer()
-
-
-    // console.log(photographers);

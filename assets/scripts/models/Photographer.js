@@ -15,6 +15,21 @@ class Photographer{
     get portrait(){
         return this._portrait
     }
+    get id(){
+        return this._id
+    }
+    get city(){
+        return this._city
+    }
+    get country(){
+        return this._country
+    }
+    get tagline(){
+        return this._tagline
+    }
+    get price(){
+        return this._price
+    }
 
 
 

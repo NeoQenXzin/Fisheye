@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="assets/favicon.png">
@@ -9,16 +9,16 @@
   </head>
   <body>
     <header>
-        <img src="assets/images/logo.png" class="logo" />
+        <img src="assets/images/logo.png" class="logo" alt="logo Fisheye"  />
         <h1>Nos photographes</h1>
     </header>
-    <main id="main">
+    <main id="main" role="navigation" aria-label="Choisir un photographe pour voir son profil">
         <div class="photographer-section"></div>
     </main>
     <script src="assets/scripts/api/Api.js"></script>
     <script src="assets/scripts/factories/photographersFactory.js"></script>
     <script src="assets/scripts/models/Photographer.js"></script>
-    <script src="assets/scripts/pages/index.js"></script>
     <script src="assets/scripts/pages/photographer.js"></script>
+    <script src="assets/scripts/pages/index.js"></script>
   </body>
 </html>

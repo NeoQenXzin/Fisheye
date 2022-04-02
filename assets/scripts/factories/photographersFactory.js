@@ -16,9 +16,9 @@ class PhotographerFactory{
             const article = document.createElement( 'article' );
             article.innerHTML =
                  `
-                    <a class="lien-profile" href="#">
+                    <a class="lien-profile" href="#" alt="Liens vers le profil de ${name} par clic sur image ou nom" aria-label="Liens vers le profil de ${name}">
                         <div class="article-index">
-                        <img src="${picture}"></img>
+                        <img src="${picture}" alt="portrait du photographe ${name}"></img>
                         <h2> ${name} </h2>
                         </div>
                     </a>

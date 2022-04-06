@@ -7,7 +7,6 @@ class PhotographerFactory{
     
     // Je construit mon template main page index
     photographerFactory(data) {
-        // que signifie exactement cette syntaxe?
         const { name, portrait, country, tagline, price } = data;
         
         const picture = `assets/photographers/photo-id/${portrait}`;
@@ -16,7 +15,7 @@ class PhotographerFactory{
             const article = document.createElement( 'article' );
             article.innerHTML =
                  `
-                    <a class="lien-profile" href="#" alt="Liens vers le profil de ${name} par clic sur image ou nom" aria-label="Liens vers le profil de ${name}">
+                    <a class="lien-profile" href="photographer.html" alt="Liens vers le profil de ${name} par clic sur image ou nom" aria-label="Liens vers le profil de ${name}">
                         <div class="article-index">
                         <img src="${picture}" alt="portrait du photographe ${name}"></img>
                         <h2> ${name} </h2>

@@ -15,10 +15,11 @@
             const photographersSection = document.querySelector(".photographer-section")
 
             Photographers.forEach(photographe => {
-
+                console.log(photographe.id);
                 const Template = new PhotographerFactory()
                 const photographerModel = Template.photographerFactory(photographe);
                 const userCardDOM = photographerModel.getUserCardDOM();
+                
                 photographersSection.appendChild(userCardDOM);
             })
 

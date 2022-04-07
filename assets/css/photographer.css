@@ -74,3 +74,55 @@ form input {
     border: none;
     border-radius: 5px;
 }
+
+
+
+/* Partie photographe header  */
+.photograph-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 70px;
+    margin-top: 100px;
+}
+
+.photograph-header article, .photograph-header .article-index {
+    justify-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.photograph-header article a {
+    text-decoration: none;
+}
+
+.photograph-header article h2 {
+    color: #D3573C;
+    font-size: 36px;
+    margin-bottom: 0px;
+}
+.photograph-header article .country {
+    color: #901C1C;
+    font-size: 20px;
+}
+.photograph-header article .tagline {
+    color: #000;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 3px auto;
+}
+.photograph-header article .price {
+    color: #525252;
+    font-size: 16px;
+}
+
+.photograph-header article img {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+img{
+    width: 200px;
+}

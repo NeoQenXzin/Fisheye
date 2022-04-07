@@ -1,50 +1,36 @@
-//Mettre le code JavaScript lié à la page photographer.html
+class Profil {
+    constructor(){
+        this.photographersApi = new PhotographerApi('data/photographers.json')
+    }
 
-(async function(){
-    // On devra récupérer l'id dans notre url
-    const photographeId = getPhotographeId()
-    console.log(photographeId);
-    // Puis on devra fetch notre photographe, on l'avait appeler getphotographe dans l'index on utilisera le même nom
-    // on lui donnera directement l'photographeId
-    const photographe = await getPhotographe(photographeId)
-    console.log(photographe);
-    // Ensuite on display (affiche) l'photographe mais ici on ne le crée pas comme dans index, on l'hydrate (changer son contenu)
-    // On nommera donc la fonction hydratephotographe et on lui passera les info sur l'photographe
-    displayPhotographe(photographe)
+    async getProfil(){
 
-})()
+        // Je récupère l'id dans l'url
+        const photographeId =  new URL(location.href).searchParams.get("id")
+        console.log(photographeId);
 
-// je récupère l'id de mon Url
-function getPhotographeId(){
-    return new URL(location.href).searchParams.get("id")
-}
-
-function getPhotographe(photographeId){
-    
-    return fetch(`data/photographers.json`)
-    .then(response => response.json())
-    // then me retourne une reponse json que j'appel photographers
-    .then(photographers => {
-        //.photographers me permet d'acceder a la partie photographers de mon fichier json
-       const result = photographers.photographers.find(el =>{
+         // Je récupère mes datas de mon fichier photographers.json
+         const photographeData = await this.photographersApi.getPhotographers()
+         // J'instancie mes objets
+         const photographe = photographeData.find(el =>{
             if(el.id == photographeId){
                 return el
             }
         })
-        console.log(result);
-        return result
-    })
-    .catch(function (error) {
-        alert(error)
-    })
-}
 
-function displayPhotographe(photographe) {
+        // Ma const ou je vais ecrire le html en js
+        const photographeHeader = document.querySelector(".photograph-header")
+        // J'appel mon template qui se trouve dans PhotographerFactory et je lui passe photographe comme data
+        const Template = new PhotographerFactory()
+            const photographerModel = Template.photographerFactory(photographe);
+            const userCardDOM = photographerModel.getProfilUserDOM();         
+            photographeHeader.appendChild(userCardDOM);
+    }
+//Coder async getMedia
 
-    // créer une fonction template dans le photographerFactory pour remplacer le template générer par getUserCardDom
-    const photographeHeader = document.querySelector(".photograph-header")
-    const Template = new PhotographerFactory()
-                const photographerModel = Template.photographerFactory(photographe);
-                const userCardDOM = photographerModel.getProfilUserDOM();         
-                photographeHeader.appendChild(userCardDOM);
-}
+    }
+// Je lance la fonction de ma class
+const run = new Profil()
+run.getProfil()
+// run.getMedia()
+

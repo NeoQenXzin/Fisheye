@@ -34,12 +34,19 @@ class PhotographerFactory{
 
     // Template Profil photographe page photographer.html
         function getProfilUserDOM(){
-            const headerPhotographer = document.createElement( 'section')
+            const headerPhotographer = document.querySelector( '.photograph-header')
             headerPhotographer.innerHTML += 
-                ` 
-                    <div class="article-index">
-                        <img src="${picture}" alt="portrait du photographe ${name}"></img>
-                        <h2> ${name} </h2>
+                `   <div class="header-infos"> 
+                        <div class="name" aria-label="nom du photographe" tabindex= "2" >${name}</div>
+                        
+                        <div class="meta-infos-header" tabindex= "3">
+                        <p class="country">${country}</p>
+                        <p class="tagline">${tagline}</p>
+                        </div>
+                    </div>
+                
+                    <div class="header-image" tabindex= "5">
+                        <img src="${picture}" alt="portrait du photographe ${name}"></img>  
                     </div>
                `
 

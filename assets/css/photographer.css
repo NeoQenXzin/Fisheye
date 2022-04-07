@@ -6,6 +6,22 @@
     background-color: #FAFAFA;
     height: 300px;
     margin: 0 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 45px;
+}
+.photograph-header button{
+    transform: translate(-50%);
+}
+.meta-infos-header {
+    margin-top: -15px ;
+}
+.photograph-header :nth-child(1){
+    order: 1;
+}
+.photograph-header :nth-child(3){
+    order: 3;
 }
 
 .contact_button {
@@ -78,51 +94,32 @@ form input {
 
 
 /* Partie photographe header  */
-.photograph-header {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 70px;
-    margin-top: 100px;
-}
 
-.photograph-header article, .photograph-header .article-index {
-    justify-self: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-.photograph-header article a {
-    text-decoration: none;
-}
-
-.photograph-header article h2 {
+.photograph-header .name {
     color: #D3573C;
-    font-size: 36px;
+    font-size: 60px;
+    font-weight: 500;
     margin-bottom: 0px;
 }
-.photograph-header article .country {
+.photograph-header  .country {
     color: #901C1C;
-    font-size: 20px;
+    font-size: 26px;
+    
 }
-.photograph-header article .tagline {
+.photograph-header  .tagline {
     color: #000;
-    font-size: 16px;
-    font-weight: 600;
-    margin: 3px auto;
-}
-.photograph-header article .price {
     color: #525252;
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 5px;
 }
+/* .photograph-header .price {
+    font-size: 16px;
+} */
 
-.photograph-header article img {
+.photograph-header img {
     height: 200px;
     width: 200px;
     border-radius: 50%;
     object-fit: cover;
-}
-
-img{
-    width: 200px;
 }

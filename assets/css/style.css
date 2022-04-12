@@ -5,7 +5,9 @@ body {
     margin: 0;
 }
 
-
+main{
+    margin-bottom: 5rem;
+}
 header {
     display: flex;
     flex-direction: row;
@@ -57,7 +59,7 @@ h1 {
     font-weight: 600;
     margin: 3px auto;
 }
-.photographer-section article .price {
+.photographer-section article .price-main {
     color: #525252;
     font-size: 16px;
 }

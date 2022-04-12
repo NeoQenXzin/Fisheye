@@ -25,7 +25,7 @@ class PhotographerFactory{
                     <div class="article-index">
                         <div class="country">${country}</div>
                         <div class="tagline">${tagline}</div>
-                        <div class="price">${price}€/jour</div>
+                        <div class="price-main">${price}€/jour</div>
                     </div>
                 `;
             

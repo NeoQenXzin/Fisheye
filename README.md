@@ -4,3 +4,6 @@
 
 Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.
 
+# erreur relever
+Couleur maquette incorrect (#D3573C)
+Nom photo repertoire faute d'orthographe par rapport au json

@@ -1,32 +1,53 @@
 class MediaFactory{
     constructor(data, type){
-        if(type === 'photoApi'){
-            return new Photographer(data)
+        if(type === 'mediaApi'){
+            return new Media(data)
         }
     }
     
     // Je construit mon template main page index
-    profilFactory(data) {
-        const { name, portrait, country, tagline, price } = data
+    mediaFactory(data) {
+        const { title, image, video, likes, date, price, photographerId} = data
+        const picture = `assets/photographers/${photographerId}/${image}`
+        const videoMp4 =  `assets/photographers/${photographerId}/${video}`
+       
         
-        const picture = `assets/photographers/photo-id/${portrait}`
         
-        function getProfilUserDOM(){
-            const headerPhotographer = document.createElement( 'section')
-            headerPhotographer.innerHTML += 
-            ` 
-            <div class="article-index">
-                        <img src="${picture}" alt="portrait du photographe ${name}"></img>
-                        <h2> ${name} </h2>
-                    </div>
-                        <div class="country">${country}</div>
-                        <div class="tagline">${tagline}</div>
-                        <div class="price">${price}€/jour</div>
-               `
-
-            return (headerPhotographer)
+        function getMediaUserDOM(){
+            const gallery = document.querySelector(".gallery")
+            if(picture.slice(-('undefined').length).match('undefined') ){
+                if(data.video){
+                    console.log('mp4');
+                    gallery.innerHTML +=
+                `
+                <a class="zoom-Lighting-box">
+                <div class="photo-card">
+                <video controls src="${videoMp4}">Ici la description alternative</video>
+                <h2> <span class="title-card">${title}</span> <span class="like-card"> ${likes} <i class="fas fa-heart"></i> </span> </h2>
+                </div>
+                </a>
+                <div class="price"><span>200 256 <i class="fas fa-heart"></i></span><p>${price}€/jour</p></div>
+                
+                `
+                } 
+            }else {
+                gallery.innerHTML +=
+                `
+                <a class="zoom-Lighting-box">
+                <div class="photo-card">
+                <img src="${picture}" alt="image du photographe ${image}" class="img-gallery"></img>
+                <h2> <span class="title-card">${title}</span> <span class="like-card"> ${likes} <i class="fas fa-heart"></i> </span> </h2>
+                </div>
+                </a>
+                <div class="price"><span>200 256 <i class="fas fa-heart"></i></span><p>${price}€/jour</p></div>
+                
+                `
+            }
+         
+            // Video 
+            
         }
 
-    return { name, picture, tagline, price, country, getProfilUserDOM }
+    return { title,picture, video, date, price, likes,photographerId, getMediaUserDOM }
 }
 }

@@ -48,8 +48,13 @@ class PhotographerFactory{
                     <div class="header-image" tabindex= "5">
                         <img src="${picture}" alt="portrait du photographe ${name}"></img>  
                     </div>
-               `
 
+                    <div class="price"><span>200 256 <i class="fas fa-heart"></i></span><p>${price}€/jour</p></div>
+               `
+               // Affichage du nom du photographe dans la modal
+               document.querySelector('#name-photograph-modal').innerText += name
+
+               
             return (headerPhotographer)
         }
 

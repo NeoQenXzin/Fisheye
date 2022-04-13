@@ -10,11 +10,12 @@ class MediaFactory{
         const { title, image, video, likes, date, price, photographerId} = data
         const picture = `assets/photographers/${photographerId}/${image}`
         const videoMp4 =  `assets/photographers/${photographerId}/${video}`
-       
+        
         
         
         function getMediaUserDOM(){
             const gallery = document.querySelector(".gallery")
+            //Template Video 
             if(picture.slice(-('undefined').length).match('undefined') ){
                 if(data.video){
                     console.log('mp4');
@@ -26,11 +27,13 @@ class MediaFactory{
                 <h2> <span class="title-card">${title}</span> <span class="like-card"> ${likes} <i class="fas fa-heart"></i> </span> </h2>
                 </div>
                 </a>
-                <div class="price"><span>200 256 <i class="fas fa-heart"></i></span><p>${price}€/jour</p></div>
+                
                 
                 `
                 } 
-            }else {
+            }
+            //Template photo
+            else {
                 gallery.innerHTML +=
                 `
                 <a class="zoom-Lighting-box">
@@ -39,12 +42,11 @@ class MediaFactory{
                 <h2> <span class="title-card">${title}</span> <span class="like-card"> ${likes} <i class="fas fa-heart"></i> </span> </h2>
                 </div>
                 </a>
-                <div class="price"><span>200 256 <i class="fas fa-heart"></i></span><p>${price}€/jour</p></div>
+                
                 
                 `
             }
          
-            // Video 
             
         }
 

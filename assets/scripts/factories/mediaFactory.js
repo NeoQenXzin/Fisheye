@@ -36,42 +36,38 @@ class MediaFactory{
                 `
                 <a class="zoom-Lighting-box" alt="ouvre photo dans lighting-box" tabindex="7">
                 <div class="photo-card">
-                <img src="${picture}"    onclick="displayLightbox()"   alt="image du photographe ${image}" class="img-gallery"></img>
+                <img src="${picture}"    onclick="displayLightbox()"  name="${image}" alt="image du photographe ${image}" class="img-gallery"></img>
                 <h2> <span class="title-card">${title}</span> <span class="like-card"> ${likes} <i class="fas fa-heart"></i> </span> </h2>
                 </div>
                 </a>
                 `
-                // template lightbox
-                const lightbox = document.querySelector('.lightbox')
-                lightbox.innerHTML = 
-                `
-                <header>
-                <img src="assets/icons/close.svg" onclick="closeLightbox()"   class="cross"alt="Croix ferme modal" tabindex="1"/>
-                <img src="assets/icons/chevron-left.svg" onclick="previousPhoto()" class="chevron-left" alt="chevron photo précédente" tabindex="2"/>
-                <img src="assets/icons/chevron-right.svg" onclick="nextPhoto()" class="chevron-right" alt="Chevron photo suivante" tabindex="3"/>
-                </header>
-                <div class="image-contain">
-                <img src="${picture}"  alt="image du photographe ${image}" class="img-lightbox"></img>
-                <span>${title}</span>
-                </div>
-                `
-                // Test Affiche image selectionné :/
-                document.querySelector('.img-gallery').addEventListener('click', (e) => {
-                    console.log(e.target) 
-            })
-
+                
             }
             
             
+            
         }
-     
-        // Template lightbox 
-        // let imgAttribut = document.querySelector(".img-lightbox")
         
-        // imgAttribut.setAttribute('src', picture) 
-        
-        // function getLightboxDOM(){
-        // }
-    return { title,picture, video, date, price, likes,photographerId, getMediaUserDOM }
+        function getLightboxDOM(){
+            
+            // Test Affiche image selectionné :/
+            // template lightbox
+            const lightbox = document.querySelector('.lightbox')
+            lightbox.innerHTML = 
+            `
+            <header>
+            <img src="assets/icons/close.svg" onclick="closeLightbox()"   class="cross"alt="Croix ferme modal" tabindex="1"/>
+            <img src="assets/icons/chevron-left.svg" onclick="previousPhoto()" class="chevron-left" alt="chevron photo précédente" tabindex="2"/>
+            <img src="assets/icons/chevron-right.svg" onclick="nextPhoto()" class="chevron-right" alt="Chevron photo suivante" tabindex="3"/>
+            </header>
+            <div class="image-contain">
+            <img src="${picture}"  alt="image du photographe ${image}" class="img-lightbox"></img>
+            <span>${data.title}</span>
+            </div>
+            `
+            
+            }
+
+    return { title,picture, video, date, price, likes,photographerId, getMediaUserDOM, getLightboxDOM }
 }
 }

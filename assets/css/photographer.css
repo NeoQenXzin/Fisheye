@@ -195,7 +195,7 @@ form textarea{
 .lightbox .img-lightbox {
     width: 100%;
    height: 88vh;
-   object-fit: contain;
+   object-fit: cover;
 }
 
 

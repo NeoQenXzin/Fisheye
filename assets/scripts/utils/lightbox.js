@@ -1,31 +1,40 @@
-// Ouverture et fermeture de la lightbox
+class Lightbox {
+    constructor (){
+        // J'ai besoin de media.title media.videoMp4, Picture
+        
 
-function displayLightbox() {
-    const lightboxModal = document.getElementById("lightbox-modal")
-    lightboxModal.style.display = "block"
-    // Diminuer l'opacité tarif photographe
-    let priceDiv = document.querySelector(".price")
-    priceDiv.style.opacity = .0
+    }
     
-    // j'affiche mon template
-//     document.querySelector('.img-gallery').addEventListener('click', (e) => {
-//         console.log(e.target) 
-// })
+    
+    // Ouverture et fermeture de la lightbox
+    
+    
+    // Passer a la photo suivante
+    nextPhoto() {
+        console.log("chevron droit");
+    }
+    
+// photo précédente
+    previousPhoto() {
+        console.log("chevron gauche");
+}
 }
 
-function closeLightbox() {
-    const lightboxModal = document.getElementById("lightbox-modal")
-    lightboxModal.style.display = "none"
-    // remettre l'opacité du tarif photographe
-        const priceDiv = document.querySelector(".price")
-        priceDiv.style.opacity = 1
- 
+    // Ouvrir lightbox
+  function  displayLightbox() {
+        const lightboxModal = document.getElementById("lightbox-modal")
+        lightboxModal.style.display = "block"
+        // Diminuer l'opacité tarif photographe
+        let priceDiv = document.querySelector(".price")
+        priceDiv.style.opacity = .0
 }
 
-function nextPhoto() {
-    console.log("chevron droit");
-}
-
-function previousPhoto() {
-    console.log("chevron gauche");
+// Fermer lightbox
+    function closeLightbox() {
+        const lightboxModal = document.getElementById("lightbox-modal")
+        lightboxModal.style.display = "none"
+        // remettre l'opacité du tarif photographe
+            const priceDiv = document.querySelector(".price")
+            priceDiv.style.opacity = 1
+    
 }

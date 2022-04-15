@@ -10,12 +10,12 @@
             
             // J'instancie mes objets
             const Photographers = await photographersData.map(photographers => new PhotographerFactory(photographers, 'photoApi'))
-
+            console.log(Photographers);
             // Ma const ou je vais ecrire le html en js
             const photographersSection = document.querySelector(".photographer-section")
 
             Photographers.forEach(photographe => {
-                console.log(photographe.id);
+                // console.log(photographe.id);
                 const Template = new PhotographerFactory()
                 const photographerModel = Template.photographerFactory(photographe);
                 const userCardDOM = photographerModel.getUserCardDOM();

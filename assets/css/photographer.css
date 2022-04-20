@@ -145,7 +145,7 @@ form textarea{
 .lightbox{
    
     border-radius: 5px;
-    background-color: #d8d8d8;
+    background-color: white;
     width: 84%;
     height: 90vh;
     display: flex;
@@ -167,14 +167,15 @@ form textarea{
 }
 .lightbox img .cross{
     width: 50px;
+    
 }
 .lightbox .chevron-left{
-    width: 100px;
+    width: 65px;
     left: 10px;
     top: 45%;
 }
 .lightbox .chevron-right{
-    width: 100px;
+    width: 65px;
     right: 10px;
     top: 45%;
     color: #901C1C;
@@ -196,6 +197,7 @@ form textarea{
     width: 100%;
    height: 88vh;
    object-fit: cover;
+   border-radius: 8px;
 }
 
 

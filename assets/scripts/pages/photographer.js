@@ -55,8 +55,7 @@ class Profil {
         // Je récupère toutes les photos correspondantes au photographe
         const Template = new MediaFactory()
         let  medias = await this.getAllMediaPhotographer()
-        // const lightbox = new Lightbox()
-        
+
         // Je selectionne toutes mes photos
         const photos = document.querySelectorAll('.img-gallery')
         // Je parcours chacune d'elle 
@@ -68,38 +67,35 @@ class Profil {
 
                 // Je crée une variable pour récupérer la photo de mes médias ayant le même nom que celle sur laquelle je clic
                 let photoMedia = []
+                let videoMedia = []
 
                 // Je boucle sur mes médias
                  for (let i = 0; i < medias.length; i++) {
-                     //  console.log(medias[i].image, medias[i].video);
+                      console.log(medias[i].image, medias[i].video);
                      // je compare le nom de la photo surlaquelle je clic avec mes images de mes médias 
                      if( dataAttribute == medias[i].image){
 
                          // Je recupere celle qui correspond dans ma variable créer plus haut
                          photoMedia.push(medias[i])
+                         let gallerieMedia = Template.mediaFactory(photoMedia[0])
+                         gallerieMedia.getLightboxPhotoDOM()
                         }
-                    //     else if( dataAttribute == medias[i].video){
-                    //         photoMedia.push(medias[i])
-                    // }
-                     
+                        else if( dataAttribute == medias[i].video){
+                            videoMedia.push(medias[i])
+                            let gallerieMedia = Template.mediaFactory(videoMedia[0])
+                            gallerieMedia.getLightboxVideoDOM()
+                        } 
                     }
-                    console.log(photoMedia);
-                    // Je construit mon template avec
-                    const gallerieMedia = Template.mediaFactory(photoMedia[0])
-                    gallerieMedia.getLightboxDOM()
                 })
-            
-        });
-    }
-    
-    // Comment utiliser ça ???
-    // const media = await mediaData.map(medias1 => new MediaFactory(medias, 'mediaApi'))
-    
-    
+                
+            });
 
+            
+        }
 }
 // Je lance la fonction de ma class
 const run = new Profil()
 run.getProfil()
 run.displayMedias()
 run.createMediaDOM()
+

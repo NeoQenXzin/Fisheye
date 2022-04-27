@@ -37,9 +37,9 @@ class Profil {
     }
 
 // Afficher mes medias
-    async displayMedias() {  
+    async displayMedias(medias) {  
         const Template = new MediaFactory()
-       let  medias = await this.getAllMediaPhotographer()
+    //    let  medias = await this.getAllMediaPhotographer()
         // J'appel mon template avec une boucle pour construire chaque carte photo
         for (let i = 0; i < medias.length; i++) {
             console.log(medias[i]);
@@ -94,8 +94,20 @@ class Profil {
         }
 }
 // Je lance la fonction de ma class
-const run = new Profil()
-run.getProfil()
-run.displayMedias()
-run.createMediaDOM()
+
+// const pFactory = new PhotographerFactory()
+
+// const mFactory = new MediaFactory()
+async function main(){
+    
+    const run = new Profil()
+    run.getProfil()
+    const allMedias = await run.getAllMediaPhotographer()
+    run.displayMedias(allMedias)
+    run.createMediaDOM()
+    console.log(allMedias);
+
+}
+main()
+
 

@@ -17,7 +17,7 @@
     <a href="index.html" alt="liens image logo vers la page accueil"><img src="assets/images/logo.png" class="logo"
         alt="logo fisheye" tabindex="1" /></a>
   </header>
-  <main id="main">
+  <main id="main" aria-hidden="false">
     <!-- Partie photographe header  -->
     <div class="photograph-header">
       <button class="contact-button" onclick="displayModal()" tabindex="4">Contactez-moi</button>
@@ -43,37 +43,37 @@
 
 
    <!-- Partie Modal  -->
-  <div id="contact_modal" role="dialog">
+  <div id="contact_modal" role="dialog" aria-hidden="true" aria-describedby="modalTitle">
 
     <!-- Contact modal  -->
     <div class="modal">
       <header>
 
-        <h2>Contactez-moi <br>
+        <h2 id="modalTitle">Contactez-moi <br>
           <span id="name-photograph-modal"></span>
         </h2>
-        <img src="assets/icons/close.svg" onclick="closeModal()"  alt="Croix ferme modal" tabindex="1"/>
+        <img src="assets/icons/close.svg" id="close-modal-btn" onclick="closeModal()"  alt="Croix ferme modal" tabindex="1"/>
       </header>
-      <form action="photographer.html" method="post" id="form">
+      <form action="photographer.html" method="post" id="form" >
         <div>
-          <label for="prenom" tabindex="2">Prénom</label>
-          <input type="text" id="prenom" aria-required="true">
+          <label for="prenom">Prénom</label>
+          <input type="text" id="prenom" aria-required="true"  tabindex="1">
           <label for="nom" >Nom</label>
-          <input type="text" id="nom" aria-required="true">
+          <input type="text" id="nom" aria-required="true"  tabindex="1">
           <label for="email">Email</label>
-          <input type="email" id="email" aria-required="true">
+          <input type="email" id="email" aria-required="true"  tabindex="1">
           <label for="message">Votre message</label>
-          <textarea name="message" id="message" cols="77" rows="10" aria-required="true"></textarea>
+          <textarea name="message" id="message" cols="77" rows="10" aria-required="true"  tabindex="1"></textarea>
           
         </div>
-        <button  type="submit" class="contact-button">Envoyer</button>
+        <button  type="submit" class="contact-button"  tabindex="1" >Envoyer</button>
       </form>
     </div>
 
     
   </div>
   <!-- Lightbox  -->
-  <div id="lightbox-modal" role="dialog">
+  <div id="lightbox-modal" role="dialog" aria-hidden="true" aria-describedby="lightboxTitle">
     <div class="lightbox"></div>
   </div>
 

@@ -1,20 +1,38 @@
+// Variable déclarée dans contactForm
+// let mainId = document.getElementById("main")
+// let body = document.querySelector("body")
+
 // Ouvrir lightbox
-  function  displayLightbox() {
-        const lightboxModal = document.getElementById("lightbox-modal")
-        lightboxModal.style.display = "block"
-        // Diminuer l'opacité tarif photographe
-        let priceDiv = document.querySelector(".price")
-        priceDiv.style.opacity = .0
+function  displayLightbox() {
+    const lightboxModal = document.getElementById("lightbox-modal")
+     const closeLightboxBtn = document.querySelector(".cross")   
+    
+    lightboxModal.style.display = "block"
+    // Diminuer l'opacité tarif photographe
+    let priceDiv = document.querySelector(".price")
+    priceDiv.style.opacity = .0
+
+    // Accessibilité
+    mainId.setAttribute('aria-hidden', 'true')
+    body.classList.add('no-scroll')
+    lightboxModal.setAttribute('aria-hidden', 'false')
+
+    closeLightboxBtn.focus()
 }
 
 // Fermer lightbox
     function closeLightbox() {
         const lightboxModal = document.getElementById("lightbox-modal")
+        
         lightboxModal.style.display = "none"
         // remettre l'opacité du tarif photographe
-            const priceDiv = document.querySelector(".price")
-            priceDiv.style.opacity = 1
-    
+        const priceDiv = document.querySelector(".price")
+        priceDiv.style.opacity = 1
+        
+        // Accessibilité
+        mainId.setAttribute('aria-hidden', 'false')
+        body.classList.remove('no-scroll')
+        lightboxModal.setAttribute('aria-hidden', 'true')
 }
 
 // Passer à la slide suivante
@@ -71,10 +89,10 @@ function previousSlide(){
         medias[index].src.slice(-('mp4').length).match('mp4') ?
         sliderImage.innerHTML =  `
         <video controls src="${medias[index].src}" class="img-lightbox">Video</video>
-        <span>${titreCard[index].innerText}</span>            ` :
+        <span tabindex="1">${titreCard[index].innerText}</span>            ` :
         sliderImage.innerHTML =  `
         <img src="${medias[index].src}"  alt="image du photographe " class="img-lightbox" data="${medias[index].data}"></img>
-        <span>${titreCard[index].innerText}</span> 
+        <span tabindex="1">${titreCard[index].innerText}</span> 
         ` 
     }
 
@@ -91,7 +109,7 @@ function previousSlide(){
         <span>${titreCard[0].innerText}</span>            ` :
         sliderImage.innerHTML =  `
         <img src="${medias[0].src}"  alt="image du photographe " class="img-lightbox" data="${medias[index].data}"></img>
-        <span>${titreCard[0].innerText}</span> 
+        <span tabindex="1">${titreCard[0].innerText}</span> 
         ` 
     }
 
@@ -110,6 +128,14 @@ function previousSlide(){
         <span>${titreCard[medias.length-1].innerText}</span>            ` :
         sliderImage.innerHTML =  `
         <img src="${medias[medias.length-1].src}"  alt="image du photographe " class="img-lightbox" data="${medias[index].data}"></img>
-        <span>${titreCard[medias.length-1].innerText}</span> 
+        <span tabindex="1">${titreCard[medias.length-1].innerText}</span> 
         ` 
     }
+
+    //Fermer avec esc lightbox
+    document.addEventListener('keydown', e => {
+        if( e.keyCode === 27) { 
+            console.log('yes')
+            closeLightbox()
+        }
+    })

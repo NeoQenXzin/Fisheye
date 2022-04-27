@@ -2,7 +2,7 @@
 #contact_modal {
     display: none;
     position: fixed;
-    top: 30px;
+    top: 10px;
     right: 50%;
     left: 50%;
     width: 75vw;
@@ -54,7 +54,7 @@
     cursor: pointer;
 }
 .contact-button:hover, .contact-button:focus {
-    background-color: #DB8876;
+    background-color: #D3573C;
 }
 
 
@@ -129,6 +129,9 @@ form textarea{
     height: 150px;
 }
 
+.no-scroll{
+    overflow: hidden;
+}
 /* Lightbox  */
 #lightbox-modal{
     display: none;
@@ -312,6 +315,20 @@ form textarea{
     object-fit: cover;
     /* correction bug white space  */
     vertical-align: middle;
+    cursor: pointer;
+    
+}
+.image-contain img, .image-contain video{
+    animation: appear .3s ease-in-out;
+
+}
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
 }
 
 .price{

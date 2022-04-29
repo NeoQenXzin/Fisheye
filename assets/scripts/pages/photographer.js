@@ -61,17 +61,15 @@ class Profil {
         // Je parcours chacune d'elle 
         photos.forEach(e=> {
             e.addEventListener('click', (e) => {
-                
                 // Je recupère le nom de la photo sur laquelle je clic 
                 let dataAttribute = e.target.getAttribute("name")
-
+                
                 // Je crée une variable pour récupérer la photo de mes médias ayant le même nom que celle sur laquelle je clic
                 let photoMedia = []
                 let videoMedia = []
-
+                
                 // Je boucle sur mes médias
                  for (let i = 0; i < medias.length; i++) {
-                      console.log(medias[i].image, medias[i].video);
                      // je compare le nom de la photo surlaquelle je clic avec mes images de mes médias 
                      if( dataAttribute == medias[i].image){
 
@@ -86,6 +84,8 @@ class Profil {
                             gallerieMedia.getLightboxVideoDOM()
                         } 
                     }
+                    //Ouverture lightbox
+                    displayLightbox()
                 })
                 
             });
@@ -105,8 +105,12 @@ async function main(){
     const allMedias = await run.getAllMediaPhotographer()
     run.displayMedias(allMedias)
     run.createMediaDOM()
-    console.log(allMedias);
-
+    const closeLightboxBtn = document.querySelector(".cross") 
+    // incrémente tout les likes ajoutés a chaque photo par l'utilisateur
+    let likeUtilisateur = 0
+    likePlus()
+    likeMoins()
+    displayTotalLike()  
 }
 main()
 

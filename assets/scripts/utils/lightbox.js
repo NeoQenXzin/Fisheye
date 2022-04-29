@@ -5,7 +5,7 @@
 // Ouvrir lightbox
 function  displayLightbox() {
     const lightboxModal = document.getElementById("lightbox-modal")
-     const closeLightboxBtn = document.querySelector(".cross")   
+    const closeLightboxBtn = document.querySelector(".cross")   
     
     lightboxModal.style.display = "block"
     // Diminuer l'opacité tarif photographe
@@ -16,8 +16,8 @@ function  displayLightbox() {
     mainId.setAttribute('aria-hidden', 'true')
     body.classList.add('no-scroll')
     lightboxModal.setAttribute('aria-hidden', 'false')
-
     closeLightboxBtn.focus()
+    
 }
 
 // Fermer lightbox
@@ -43,17 +43,18 @@ function nextSlide(){
     // Je demarre de l'index 0 , il faudra le remplacer par l'image surlaquel on a cliqué
     let index = 0;
         // Pour chaque media
-    medias.forEach(() => {
+    for(let media of medias) {
+    // medias.forEach(() => {
         // si l'attribut src = attribut de l'image de la lightbox
-        if(medias[index].src == imageActuelle.src && index < medias.length - 1){
+        if(media.src == imageActuelle.src && index < medias.length - 1){
             index++
-            displayMediaLightbox(index)
+           return displayMediaLightbox(index)
         }
-        else if(medias[index].src == imageActuelle.src && index == medias.length - 1){
-            boucleFinMediaLightBox(index)
+        else if(media.src == imageActuelle.src && index == medias.length - 1){
+           return boucleFinMediaLightBox(index)
         }
         index ++
-        });
+        };
 }
 
 // Retourner à la slide précédente
@@ -64,17 +65,18 @@ function previousSlide(){
     let index = 0;
 
     // Je demarre de l'index 0 , il faudra le remplacer par l'image surlaquel on a cliqué
-        medias.forEach(() => {
+        for(let media of medias){
     // Pas très propre car remplacer par second if, image actuelle a corriger/ Boucle foreach peut etre pas idéal       
-            if(imageActuelle.src !== medias[1] && index == 0){
-             boucleDebutMediaLightBox(index)
+            if(imageActuelle.src !== media && index == 0){
+               boucleDebutMediaLightBox(index)
+               
            }
-            if(medias[index].src == imageActuelle.src && index > - 1){
+           else if(media.src == imageActuelle.src && index > - 1){
                 index--
                 displayMediaLightbox(index)
             }
             index++
-        });
+        };
         
     }
    
@@ -134,7 +136,7 @@ function previousSlide(){
 
     //Fermer avec esc lightbox
     document.addEventListener('keydown', e => {
-        if( e.keyCode === 27) { 
+        if( e.key == "Escape") { 
             console.log('yes')
             closeLightbox()
         }

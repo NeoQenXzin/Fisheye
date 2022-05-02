@@ -62,5 +62,4 @@ function displayTotalLike() {
     total = totalLike()
     const totalDisplay = document.querySelector(".total-like")
     totalDisplay.innerHTML = ` ${total + likeUtilisateur} <i class="fas fa-heart"></i> `
-    console.log(likeUtilisateur);
 }

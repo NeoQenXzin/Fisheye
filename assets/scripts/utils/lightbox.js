@@ -4,9 +4,10 @@
 
 // Ouvrir lightbox
 function  displayLightbox() {
+    navigationLightbox()
     const lightboxModal = document.getElementById("lightbox-modal")
     const closeLightboxBtn = document.querySelector(".cross")   
-    
+  
     lightboxModal.style.display = "block"
     // Diminuer l'opacité tarif photographe
     let priceDiv = document.querySelector(".price")
@@ -87,7 +88,7 @@ function previousSlide(){
         const sliderImage = document.querySelector(".image-contain")
         const titreCard = document.querySelectorAll('.title-card')
 
-        console.log(titreCard);
+        // console.log(titreCard);
         medias[index].src.slice(-('mp4').length).match('mp4') ?
         sliderImage.innerHTML =  `
         <video controls src="${medias[index].src}" class="img-lightbox">Video</video>
@@ -136,8 +137,32 @@ function previousSlide(){
 
     //Fermer avec esc lightbox
     document.addEventListener('keydown', e => {
+        // let mediaCard = document.querySelectorAll(".photo-card")
         if( e.key == "Escape") { 
             console.log('yes')
             closeLightbox()
         }
+        if( e.key =="Enter"){
+            console.log("enter");
+            e.target.click()
+        }
     })
+
+    //Navigation avec les flêches
+    function navigationLightbox(){
+
+        // const lightboxModal = document.getElementById("lightbox-modal")
+        // lightboxModal.style.display = "block"
+        // if(lightboxModal.style.display === "block"){
+            document.addEventListener('keydown', e => {
+                if( e.key == "ArrowRight") { 
+                console.log('apres')
+                nextSlide()
+            }
+            if( e.key == "ArrowLeft") { 
+                console.log('avant')
+                previousSlide()
+            }
+        })
+    // }
+    }

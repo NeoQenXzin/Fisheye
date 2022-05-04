@@ -39,13 +39,11 @@ class Profil {
 // Afficher mes medias
     async displayMedias(medias) {  
         const Template = new MediaFactory()
-    //    let  medias = await this.getAllMediaPhotographer()
         // J'appel mon template avec une boucle pour construire chaque carte photo
         for (let i = 0; i < medias.length; i++) {
             // console.log(medias[i]);
             const gallerieMedia = Template.mediaFactory(medias[i])
             gallerieMedia.getMediaUserDOM()
-            // gallerieMedia.getLightboxDOM()
         }
     }
 
@@ -102,12 +100,11 @@ async function main(){
     const run = new Profil()
     run.getProfil()
     const allMedias = await run.getAllMediaPhotographer()
-    // console.log(allMedias)
     run.displayMedias(allMedias)
     run.createMediaDOM()
     // const closeLightboxBtn = document.querySelector(".cross") 
     // incrémente tout les likes ajoutés a chaque photo par l'utilisateur
-    let likeUtilisateur = 0
+    // let likeUtilisateur = 0
     select(allMedias, run)
     likePlus()
     likeMoins()

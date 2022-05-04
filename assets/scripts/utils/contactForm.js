@@ -2,6 +2,7 @@ let mainId = document.getElementById("main")
 let contactModalId = document.getElementById("contact_modal")
 let body = document.querySelector("body")
 let closeModalBtn = document.getElementById("close-modal-btn")
+let overlay = document.querySelector(".overlay")
 
 
 // Ouverture et fermeture de la modale 
@@ -11,6 +12,7 @@ function displayModal() {
     mainId.setAttribute('aria-hidden', 'true')
     contactModalId.setAttribute('aria-hidden', 'false')
     body.classList.add('no-scroll')
+    overlay.style.display = "block"
 
     modal.style.display = "block";
     // Diminuer l'opacité tarif photographe
@@ -26,6 +28,8 @@ function closeModal() {
     contactModalId.setAttribute('aria-hidden', 'true')
     body.classList.remove('no-scroll')
     modal.style.display = "none";
+    overlay.style.display = "none"
+
     // remettre l'opacité du tarif photographe
         const priceDiv = document.querySelector(".price")
         priceDiv.style.opacity = 1

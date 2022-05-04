@@ -29,23 +29,21 @@ class MediaFactory {
                 if (data.video) {
                     gallery.innerHTML +=
                         `
-                <a class="zoom-Lighting-box" alt="ouvre video dans lighting-box" tabindex="7">
                 <div class="photo-card">
-                <video controls src="${videoMp4}" class="img-gallery" name="${video}">video ${title}</video>
+                <video controls src="${videoMp4}" class="img-gallery" name="${video}" tabindex="7" alt="video ${video} ouvre video dans lighting-box">video ${title}</video>
                 <h2> <span class="title-card">${title}</span>
                 <span class="like-card"> 
                 <span class="nbre-like">${likes} </span>
                    <span class="liker like-vide">   
-                       <i class="far fa-heart"></i>
+                       <i class="far fa-heart" tabindex="7" aria-label="ajouter j'aime" role="bouton"></i>
                    </span>
                    <span class="liker like-plein"> 
-                       <i class="fas fa-heart"></i>
+                       <i class="fas fa-heart" tabindex="7" aria-label="retirer j'aime" role="bouton"></i>
                    </span>
                    </span>
 
                </h2>
                 </div>
-                </a>
                 `
                 }
             }
@@ -53,23 +51,21 @@ class MediaFactory {
             else {
                 gallery.innerHTML +=
                     `
-                <a class="zoom-Lighting-box" alt="ouvre photo dans lighting-box" tabindex="7">
                 <div class="photo-card">
-                <img src="${picture}" name="${image}" alt="image du photographe ${image}" class="img-gallery"></img>
+                <img src="${picture}" name="${image}" alt="image du photographe ${image} ouvre photo dans lighting-box" class="img-gallery" tabindex="7"></img>
                 <h2> <span class="title-card">${title}</span>
                 <span class="like-card"> 
                 <span class="nbre-like">${likes} </span>
                    <span class="liker like-vide">   
-                       <i class="far fa-heart"></i>
+                       <i class="far fa-heart" tabindex="7" aria-label="ajouter j'aime" role="bouton"></i>
                    </span>
                    <span class="liker like-plein"> 
-                       <i class="fas fa-heart"></i>
+                       <i class="fas fa-heart" tabindex="7" aria-label="retirer j'aime" role="bouton"></i>
                    </span>
                    </span>
 
                </h2>
                 </div>
-                </a>
                 `
 
             }

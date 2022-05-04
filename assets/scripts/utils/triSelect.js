@@ -1,47 +1,42 @@
+// Trier les médias en fonction du filtre utilisé
 async function select(allMedias, run){
     const select = document.getElementById("filtre")
-    const gallery = document.querySelector(".gallery")
     select.addEventListener('change', function() {
-        console.log(select.selectedIndex);
+        // console.log(select.selectedIndex);
         if(this.options[this.selectedIndex].value === "titre"){
             let triParTitre = allMedias.sort((a,b) => {
                 return a.title > b.title ? 1 : -1
             })
-            console.log(triParTitre);
-            gallery.innerHTML =""
-            run.displayMedias(triParTitre)
-            run.createMediaDOM()
-            likePlus()
-            likeMoins()
-            displayTotalLike()
+           displaySelect(triParTitre, run)
             
         }
-        if(this.options[this.selectedIndex].value === "popularité"){
+       else if(this.options[this.selectedIndex].value === "popularité"){
             let triParPopularite = allMedias.sort((a,b) => {
                 return a.likes > b.likes ? 1 : -1
             })
-            console.log(triParPopularite);
-
-            gallery.innerHTML =""
-            run.displayMedias(triParPopularite)
-            run.createMediaDOM()
-            likePlus()
-            likeMoins()
-            displayTotalLike()
+            // console.log(triParPopularite);
+            displaySelect(triParPopularite, run)
             
         }
-        if(this.options[this.selectedIndex].value === "date"){
+       else if(this.options[this.selectedIndex].value === "date"){
             let triParDate =  allMedias.sort((a,b) => {
                 return a.date > b.date ? 1 : -1
             })
-            console.log(triParDate);
-            gallery.innerHTML =""
-            run.displayMedias(triParDate)
-            run.createMediaDOM()
-            likePlus()
-            likeMoins()
-            displayTotalLike()
+            // console.log(triParDate);
+           displaySelect(triParDate, run)
         }
     })
-    console.log(select.options);
+    // console.log(select.options);
+}
+
+
+// Générer nouvel affichage des medias
+function displaySelect(type, run){
+    const gallery = document.querySelector(".gallery")
+    gallery.innerHTML =""
+    run.displayMedias(type)
+    run.createMediaDOM()
+    likePlus()
+    likeMoins()
+    displayTotalLike()
 }

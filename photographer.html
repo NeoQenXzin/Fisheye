@@ -13,6 +13,7 @@
 </head>
 
 <body>
+  <div class="overlay"></div>
   <header role="banner">
     <a href="index.html" alt="liens image logo vers la page accueil"><img src="assets/images/logo.png" class="logo"
         alt="logo fisheye" tabindex="1" /></a>
@@ -27,11 +28,14 @@
     <div class="gallerie-media">
       <div class="filtres-contain" role="filtre">
         <span>Trier par </span>
-        <select name="filtre" id="filtre" tabindex="6">
-          <option value="popularité">Popularité</option>
-          <option value="date">Date</option>
-          <option value="titre">Titre</option>
-        </select>
+        <div class="box">
+
+          <select name="filtre" id="filtre" tabindex="6" >
+            <option value="date">Date</option>
+            <option value="popularité">Popularité</option>
+            <option value="titre">Titre</option>
+          </select>
+        </div>
       </div>
 
     <!-- Partie gallerie photo -->

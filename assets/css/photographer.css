@@ -276,17 +276,18 @@ form textarea{
 .filtres-contain option:hover{
     color: #D3573C;
 } */
-.gallerie-media-filters-menu .box-arrow, #filterList .box-arrow{
+button{
+    overflow: hidden;
+}
+.box-arrow{
     display: inline-block;
     transform: rotate(0deg);
-    transition: all .2s ease-in-out;
+    transition: all .4s ease-in-out;
+    overflow: hidden;
 }
-.button-text{
+/* .button-text{
     display: inline-block;
-}
-
-
-
+} */
 /* .filtres-contain option {
     width: 10px !important;
     height: 50px;
@@ -359,7 +360,6 @@ option .padding{
     position: relative;
     top: 100;
     left: 0;
-    /* z-index: 11; */
     line-height: 50px;
     padding-left: 0;
 }
@@ -444,8 +444,21 @@ option .padding{
 .photo-card{
     display: flex;
     flex-direction: column;
+    position: relative;
     
 }
+.photo-card .fa-video {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    color: #FAFAFA;
+    text-shadow: 1px 0 5px #901C1C;
+}
+/* .photo-card .fa-video:hover {
+    color: #000;
+    text-shadow: 1px 0 5px #901C1C;
+} */
 
 .photo-card h2{
     color: #901C1C;

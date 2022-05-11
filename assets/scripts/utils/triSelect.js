@@ -9,7 +9,21 @@ const filterItemsElement = document.querySelectorAll('.gallerie-media-filters-me
 filterListElement.classList.add('display-none')
 
 
-//flêche hors de la selectbox
+
+
+// Fermer liste filtre 
+function filterListClose(){
+  boxArrow.style.transform = "rotate(0deg) translateY(0)";
+  filterSelectedElement.classList.add('display-none')
+  filterListElement.classList.add('display-none')
+  filterSelectedElement.removeAttribute(
+  'aria-expanded',
+// Get opposite value (true === false => false || false === false => true)
+filterSelectedElement.getAttribute('aria-expanded') === 'true'
+)
+}
+
+//Si clic hors de la selectbox
 const arrowToggle = (() => {
   let open = false;
   return function ({ target: el }) {
@@ -17,7 +31,8 @@ const arrowToggle = (() => {
     else open = false;
     console.log({ open });
     if (open) {
-        boxArrow.style.transform = "rotate(-180deg) translateY(25%)";
+      const boxArrow = document.querySelector(".box-arrow");
+        boxArrow.style.transform = "rotate(-180deg) translateY(25%) translateX(-50%)";
         filterSelectedElement.classList.remove('display-none')
         filterListElement.classList.remove('display-none')
         filterSelectedElement.setAttribute(
@@ -26,15 +41,7 @@ const arrowToggle = (() => {
     filterSelectedElement.getAttribute('aria-expanded') === 'false'
     )
       } else {
-        boxArrow.style.transform = "rotate(0deg) translateY(0)";
-        filterSelectedElement.classList.add('display-none')
-        filterListElement.classList.add('display-none')
-        filterSelectedElement.removeAttribute(
-        'aria-expanded',
-    // Get opposite value (true === false => false || false === false => true)
-    filterSelectedElement.getAttribute('aria-expanded') === 'true'
-    )
-        
+        filterListClose()
     }
   };
 })();
@@ -50,15 +57,15 @@ buttonSelect.addEventListener('click', ()=>{
     filterListElement.setAttribute('aria-activedescendant', e.target.id)
   })
 })
-
 document.addEventListener('keydown', (e) => {
   // If already display and press escape just close
   if (filterSelectedElement.getAttribute('aria-expanded') === 'true') {
-    if (e.code === 'Escape') {
-      
+      if( e.key =="Enter"){
+          console.log("enter");
+          e.target.click()
+      } 
+      // l.141 lightbox.js  if( e.key == "Escape") {filterListClose()}
     }
-    
-  }
 })
 })
 
@@ -101,7 +108,7 @@ async function selectFiltre(allMedias, run){
           }   
           
           cacheFiltre(element)
-          buttonSelect.innerHTML = `${element.innerText}<span class="box-arrow"><i class="fas fa-chevron-down" aria-hidden="true"></i></span>`
+          buttonSelect.innerHTML = `${element.innerText}<span class="box-arrow"><i class="fas fa-chevron-down" aria-hidden="false"></i></span>`
         })
       })
 }

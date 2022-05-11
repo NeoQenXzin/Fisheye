@@ -7,7 +7,6 @@ function  displayLightbox() {
     navigationLightbox()
     const lightboxModal = document.getElementById("lightbox-modal")
     const closeLightboxBtn = document.querySelector(".cross")   
-  
     lightboxModal.style.display = "block"
     // Diminuer l'opacité tarif photographe
     let priceDiv = document.querySelector(".price")
@@ -139,7 +138,7 @@ function previousSlide(){
     document.addEventListener('keydown', e => {
         // let mediaCard = document.querySelectorAll(".photo-card")
         if( e.key == "Escape") { 
-            console.log('yes')
+            filterListClose()
             closeLightbox()
         }
         if( e.key =="Enter"){

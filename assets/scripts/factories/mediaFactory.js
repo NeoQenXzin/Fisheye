@@ -30,6 +30,7 @@ class MediaFactory {
                     gallery.innerHTML +=
                         `
                 <div class="photo-card">
+                <i class="fas fa-video"></i>
                 <video controls src="${videoMp4}" class="img-gallery" name="${video}" tabindex="7" alt="video ${video} ouvre video dans lighting-box">video ${title}</video>
                 <h2> <span class="title-card">${title}</span>
                 <span class="like-card"> 

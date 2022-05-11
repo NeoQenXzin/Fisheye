@@ -105,12 +105,11 @@ async function main(){
     // const closeLightboxBtn = document.querySelector(".cross") 
     // incrémente tout les likes ajoutés a chaque photo par l'utilisateur
     // let likeUtilisateur = 0
-    select(allMedias, run)
+    selectFiltre(allMedias, run)
     likePlus()
     likeMoins()
     displayTotalLike()  
 }
-
 
 
 main()

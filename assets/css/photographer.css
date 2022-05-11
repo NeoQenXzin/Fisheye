@@ -215,7 +215,7 @@ form textarea{
 
 /* Partie photographe header  */
 
-.photograph-header .name {
+.photograph-header .name h1{
     color: #D3573C;
     font-size: 60px;
     font-weight: 500;
@@ -249,7 +249,7 @@ form textarea{
     margin: 30px 100px;
 }
 
-.filtres-contain {
+/* .filtres-contain {
     margin-bottom: 50px;
    
 }
@@ -271,41 +271,164 @@ form textarea{
     text-underline-position: bottom 10px;
     width: 150px;
     appearance: none;
+    
 }
-.filtres-contain .box{
-    position: relative;
+.filtres-contain option:hover{
+    color: #D3573C;
+} */
+.gallerie-media-filters-menu .box-arrow, #filterList .box-arrow{
+    display: inline-block;
+    transform: rotate(0deg);
+    transition: all .2s ease-in-out;
+}
+.button-text{
     display: inline-block;
 }
-.filtres-contain .box::before{
-   
-        position: absolute;
-        display: block;
-        content: '';
-        width: 10px; height: 10px;
-        top: 50%;
-        right: 25px;
-        margin-top: -3px;
-        border-bottom: 1px solid rgb(255, 255, 255);
-        border-right: 1px solid rgb(255, 255, 255);
-        transform: rotate(45deg) translateY(-50%);
-        transition: all .4s ease-in-out;
-        transform-origin: 50% 0;
-      
-
-}
 
 
-.filtres-contain option {
+
+/* .filtres-contain option {
     width: 10px !important;
-    /* background: #000; */
+    height: 50px;
     border-radius: 8px;
-
+    padding: 20px;
 }
-.filtres-contain select {
-   
+.filtres-contain select[input] { 
     border-radius: 8px;
-
+    color: red;
 }
+.filtres-contain select:focus {
+    outline: none;
+}
+option .padding{
+    font-size: 40px;
+    color: transparent;
+} */
+
+
+/* FIlter avec list  */
+#buttonFilter {
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 20px;
+    display: flex;
+    color: #FAFAFA;
+    padding: 11px;
+    width: 170px;
+    height: 70px;
+    border: none;
+    background-color: #901C1C;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: "DM Sans", sans-serif;
+}
+
+#buttonFilter:hover,
+#buttonFilter:focus {
+    background-color: #D3573C;
+    color: #FAFAFA;
+}
+.gallerie-media-filters {
+    font-size: 18px;
+    line-height: 23px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+.gallerie-media-filters {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 100px;
+}
+
+
+.gallerie-media-filters-menu {
+    position: relative;
+    align-self: flex-start;
+}
+
+.gallerie-media-filters-title {
+    line-height: 50px;
+    margin: 0;
+    padding: 11px 0;
+}
+
+.gallerie-media-filters-menu--selected {
+    /* display: none; */
+    position: relative;
+    top: 100;
+    left: 0;
+    /* z-index: 11; */
+    line-height: 50px;
+    padding-left: 0;
+}
+
+.gallerie-media-filters-menu--selected i,
+.gallerie-media-filters-menu--list i {
+    margin-left: 25px;
+    pointer-events: none;
+}
+
+.display-none {
+    display: none;
+}
+
+.gallerie-media-filters-menu--list {
+    /* display: none; */
+    list-style: none;
+    width: 170px;
+    border-radius: 5px;
+    color: rgb(28, 0, 139);
+    background: rgb(151, 91, 141);
+    overflow: hidden;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    line-height: 50px;
+    z-index: 3;
+}
+
+.gallerie-media-filters-menu--list > li {
+    font-size: 20px;
+    font-weight: bold;
+    color: #FAFAFA;
+    padding: 11px;
+    padding-left: 12px;
+    height: 50px;
+    border: none;
+    background-color:#901C1C;
+    cursor: pointer;
+    /* border-bottom: 1px solid white; */
+    position: relative;
+}
+
+.gallerie-media-filters-menu--list > li::before {
+    content: "";
+    position: absolute;
+    border-bottom: 1px solid white;
+    width: calc(100% - 22px);
+    bottom : 0;
+}
+
+.gallerie-media-filters-menu--list > li:last-child:before {
+    border: none;
+}
+
+.gallerie-media-filters-menu--list > li:hover,
+.gallerie-media-filters-menu--list > li:focus {
+    background-color: #D3573C;   
+    color: #FAFAFA;
+}
+/* Fin de filter avec list  */
+
+
+
+/* Permet de masquer l'option dans la liste  */
+.valeur-cache{
+    display: none;
+}
+
 
 /* Gallery */
 .gallery {
@@ -359,6 +482,10 @@ form textarea{
 }
 .image-contain img, .image-contain video{
     animation: appear .3s ease-in-out;
+    
+}
+.img-lightbox{
+    z-index: 13;
 
 }
 @keyframes appear {

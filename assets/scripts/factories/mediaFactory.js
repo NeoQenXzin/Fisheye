@@ -106,8 +106,8 @@ class MediaFactory {
             <img src="assets/icons/chevron-left.svg" onclick="previousSlide()" class="chevron-left" alt="chevron Slide précédente" tabindex="1"/>
             <img src="assets/icons/chevron-right.svg" onclick="nextSlide()" class="chevron-right" alt="Chevron Slide suivante" tabindex="1"/>
             </header>
-            <div class="image-contain">
-            <video controls src="${videoMp4}" class="img-lightbox" name="${video}">Ici la description alternative</video>
+            <div class="image-contain"tabindex="1">
+            <video controls src="${videoMp4}" class="img-lightbox" name="${video}" tabindex="1">Ici la description alternative</video>
             <span tabindex="1">${data.title}</span>
             </div>
             `

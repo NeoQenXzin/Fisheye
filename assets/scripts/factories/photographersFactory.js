@@ -37,7 +37,7 @@ class PhotographerFactory{
             const headerPhotographer = document.querySelector( '.photograph-header')
             headerPhotographer.innerHTML += 
                 `   <div class="header-infos"> 
-                        <div class="name" aria-label="nom du photographe" tabindex= "2" >${name}</div>
+                        <div class="name" aria-label="nom du photographe" tabindex= "2" ><h1>${name}</h1></div>
                         
                         <div class="meta-infos-header" tabindex= "3">
                         <p class="country">${country}</p>

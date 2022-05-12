@@ -1,38 +1,40 @@
-class Photographer{
-    constructor(photographers){
-        this._name = photographers.name
-        this._id = photographers.id
-        this._city = photographers.city
-        this._country = photographers.country
-        this._tagline = photographers.tagline
-        this._price = photographers.price
-        this._portrait = photographers.portrait
-    }
+// eslint-disable-next-line no-unused-vars
+class Photographer {
+  constructor (photographers) {
+    this._name = photographers.name
+    this._id = photographers.id
+    this._city = photographers.city
+    this._country = photographers.country
+    this._tagline = photographers.tagline
+    this._price = photographers.price
+    this._portrait = photographers.portrait
+  }
 
-    get name(){
-        return this._name
-    }
-    get portrait(){
-        return this._portrait
-    }
-    get id(){
-        return this._id
-    }
-    get city(){
-        return this._city
-    }
-    get country(){
-        return this._country
-    }
-    get tagline(){
-        return this._tagline
-    }
-    get price(){
-        return this._price
-    }
+  get name () {
+    return this._name
+  }
 
+  get portrait () {
+    return this._portrait
+  }
 
+  get id () {
+    return this._id
+  }
 
+  get city () {
+    return this._city
+  }
+
+  get country () {
+    return this._country
+  }
+
+  get tagline () {
+    return this._tagline
+  }
+
+  get price () {
+    return this._price
+  }
 }
-
-

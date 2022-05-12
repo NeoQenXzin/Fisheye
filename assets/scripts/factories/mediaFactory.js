@@ -1,33 +1,33 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 class MediaFactory {
-    constructor(data, type) {
-        if (type === 'mediaApi') {
-            return new Media(data)
-        }
+  constructor (data, type) {
+    if (type === 'mediaApi') {
+      return new Media(data)
     }
+  }
 
-    // Je construit mon template main page index
-    mediaFactory(data) {
-        const {
-            title,
-            image,
-            video,
-            likes,
-            date,
-            price,
-            photographerId,
-            id
-        } = data
-        const picture = `assets/photographers/${photographerId}/${image}`
-        const videoMp4 = `assets/photographers/${photographerId}/${video}`
+  // Je construit mon template main page index
+  mediaFactory (data) {
+    const {
+      title,
+      image,
+      video,
+      likes,
+      date,
+      price,
+      photographerId,
+      id
+    } = data
+    const picture = `assets/photographers/${photographerId}/${image}`
+    const videoMp4 = `assets/photographers/${photographerId}/${video}`
 
-
-
-        function getMediaUserDOM() {
-            const gallery = document.querySelector(".gallery")
-            //Template Video 
-            if (picture.slice(-('undefined').length).match('undefined')) {
-                if (data.video) {
-                    gallery.innerHTML +=
+    function getMediaUserDOM () {
+      const gallery = document.querySelector('.gallery')
+      // Template Video
+      if (picture.slice(-('undefined').length).match('undefined')) {
+        if (data.video) {
+          gallery.innerHTML +=
                         `
                 <div class="photo-card">
                 <i class="fas fa-video"></i>
@@ -46,11 +46,13 @@ class MediaFactory {
                </h2>
                 </div>
                 `
-                }
-            }
-            //Template photo
-            else {
-                gallery.innerHTML +=
+        }
+      // eslint-disable-next-line brace-style
+      }
+
+      // Template photo
+      else {
+        gallery.innerHTML +=
                     `
                 <div class="photo-card">
                 <img src="${picture}" name="${image}" alt="image du photographe ${image} ouvre photo dans lighting-box" class="img-gallery" tabindex="7"></img>
@@ -68,19 +70,14 @@ class MediaFactory {
                </h2>
                 </div>
                 `
+      }
+    }
 
-            }
+    function getLightboxPhotoDOM () {
+      // template lightbox
 
-
-
-        }
-
-        function getLightboxPhotoDOM() {
-
-            // template lightbox
-
-            const lightbox = document.querySelector('.lightbox')
-            lightbox.innerHTML =
+      const lightbox = document.querySelector('.lightbox')
+      lightbox.innerHTML =
                 `
             <header>
             <img src="assets/icons/close-lightbox.svg" onclick="closeLightbox()"   class="cross"alt="Croix ferme modal" tabindex="1"/>
@@ -92,15 +89,13 @@ class MediaFactory {
             <span tabindex="1"  title="titre image">${data.title}</span>
             </div>
             `
+    }
 
-        }
+    function getLightboxVideoDOM() {
+      // template lightbox
 
-        function getLightboxVideoDOM() {
-
-            // template lightbox
-
-            const lightbox = document.querySelector('.lightbox')
-            lightbox.innerHTML =
+      const lightbox = document.querySelector('.lightbox')
+      lightbox.innerHTML =
                 `
             <header>
             <img src="assets/icons/close-lightbox.svg" onclick="closeLightbox()"   class="cross"alt="Croix ferme modal" tabindex="1"/>
@@ -112,24 +107,20 @@ class MediaFactory {
             <span tabindex="1">${data.title}</span>
             </div>
             `
-
-        }
-
-
-
-
-        return {
-            title,
-            picture,
-            video,
-            date,
-            price,
-            likes,
-            photographerId,
-            id,
-            getMediaUserDOM,
-            getLightboxPhotoDOM,
-            getLightboxVideoDOM
-        }
     }
+
+    return {
+      title,
+      picture,
+      video,
+      date,
+      price,
+      likes,
+      photographerId,
+      id,
+      getMediaUserDOM,
+      getLightboxPhotoDOM,
+      getLightboxVideoDOM
+    }
+  }
 }

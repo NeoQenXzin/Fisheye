@@ -1,37 +1,39 @@
+/* eslint-disable no-useless-constructor */
 class Api {
-    /**
-     * 
+  /**
+     *
      * @param {string} url
      */
-    constructor(url) {
-        this._url = url
-    }
+  constructor (url) {
+    this._url = url
+  }
 
-    async get() {
-        return fetch(this._url)
-            .then(response => response.json())
-            .then(data => data)
-            .catch(err => console.log('erreur fetch', err))
-    }
+  async get () {
+    return fetch(this._url)
+      .then(response => response.json())
+      .then(data => data)
+      .catch(err => console.log('erreur fetch', err))
+  }
 }
 
+// eslint-disable-next-line no-unused-vars
 class PhotographerApi extends Api {
-     /**
-     * 
-     * @param {string} url 
+  /**
+     *
+     * @param {string} url
      */
-      constructor(url) {
-        super(url)
-    }
+  constructor (url) {
+    super(url)
+  }
 
-    async getPhotographers() {
-        let data = await this.get();
-        //on crée une variable car sinon il prend le await en compte sur le return
-        return data.photographers
-    }
+  async getPhotographers () {
+    const data = await this.get()
+    // on crée une variable car sinon il prend le await en compte sur le return
+    return data.photographers
+  }
 
-    async getMedias() {
-        let data = await this.get();
-        return data.media
-    }
+  async getMedias() {
+    const data = await this.get()
+    return data.media
+  }
 }

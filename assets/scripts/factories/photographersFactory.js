@@ -1,20 +1,22 @@
-class PhotographerFactory{
-    constructor(data, type){
-        if(type === 'photoApi'){
-            return new Photographer(data)
-        }
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
+class PhotographerFactory {
+  constructor (data, type) {
+    if (type === 'photoApi') {
+      return new Photographer(data)
     }
-    
-    // Je construit mon template main page index
-    photographerFactory(data) {
-        const { name, portrait, country, tagline, price } = data
-        
-        const picture = `assets/photographers/photo-id/${portrait}`
-        
-        function getUserCardDOM() {
-            const article = document.createElement( 'article' )
-            article.innerHTML =
-                    // je passe l'id dans le lien url de chaque photographe 
+  }
+
+  // Je construit mon template main page index
+  photographerFactory (data) {
+    const { name, portrait, country, tagline, price } = data
+
+    const picture = `assets/photographers/photo-id/${portrait}`
+
+    function getUserCardDOM () {
+      const article = document.createElement('article')
+      article.innerHTML =
+        // je passe l'id dans le lien url de chaque photographe
                  `
                     <a class="lien-profile" href="photographer.html?id=${data.id}" alt="Liens vers le profil de ${name} par clic sur image ou nom" aria-label="Liens vers le profil de ${name}">
                         <div class="article-index">
@@ -27,15 +29,15 @@ class PhotographerFactory{
                         <div class="tagline">${tagline}</div>
                         <div class="price-main">${price}€/jour</div>
                     </div>
-                `;
-            
-            return (article);
+                `
+
+      return (article)
     }
 
     // Template Profil photographe page photographer.html
-        function getProfilUserDOM(){
-            const headerPhotographer = document.querySelector( '.photograph-header')
-            headerPhotographer.innerHTML += 
+    function getProfilUserDOM () {
+      const headerPhotographer = document.querySelector('.photograph-header')
+      headerPhotographer.innerHTML +=
                 `   <div class="header-infos"> 
                         <div class="name" aria-label="nom du photographe" tabindex= "2" ><h1>${name}</h1></div>
                         
@@ -51,13 +53,13 @@ class PhotographerFactory{
 
                     <div class="price" role="affiche tarif journalier du photographe "tabindex="8"><span class="total-like"> </span><p>${price}€/jour</p></div>
                `
-               // Affichage du nom du photographe dans la modal
-               document.querySelector('#name-photograph-modal').innerText += name
+      // Affichage du nom du photographe dans la modal
+      document.querySelector('#name-photograph-modal').innerText += name
 
 
-            return (headerPhotographer)
-        }
+      return (headerPhotographer)
+    }
 
     return { name, picture, tagline, price, country, getProfilUserDOM, getUserCardDOM }
-}
+  }
 }

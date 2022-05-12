@@ -1,128 +1,111 @@
 // flêche select box
 // let newOrderFilter = Array.from(filterItemsElement)
-const boxArrow = document.querySelector(".box-arrow");
-let buttonSelect = document.querySelector("#buttonFilter");
+const boxArrow = document.querySelector('.box-arrow')
+const buttonSelect = document.querySelector('#buttonFilter')
 const filterSelectedElement = document.querySelector('.gallerie-media-filters-menu--selected')
 const filterListElement = document.querySelector('.gallerie-media-filters-menu--list')
 const filterItemsElement = document.querySelectorAll('.gallerie-media-filters-menu--list > li')
 
 filterListElement.classList.add('display-none')
 
-
-
-
-// Fermer liste filtre 
-function filterListClose(){
-  boxArrow.style.transform = "rotate(0deg) translateY(0)";
+// Fermer liste filtre
+function filterListClose () {
+  boxArrow.style.transform = 'rotate(0deg) translateY(0)'
   filterSelectedElement.classList.add('display-none')
   filterListElement.classList.add('display-none')
-  filterSelectedElement.removeAttribute(
-  'aria-expanded',
-// Get opposite value (true === false => false || false === false => true)
-filterSelectedElement.getAttribute('aria-expanded') === 'true'
-)
+  filterSelectedElement.removeAttribute('aria-expanded',
+    filterSelectedElement.getAttribute('aria-expanded') === 'true')
 }
 
-//Si clic hors de la selectbox
+// Si clic hors de la selectbox
 const arrowToggle = (() => {
-  let open = false;
+  let open = false
   return function ({ target: el }) {
-    if (el === buttonSelect) open = !open;
-    else open = false;
-    console.log({ open });
+    if (el === buttonSelect) open = !open
+    else open = false
+
     if (open) {
-      const boxArrow = document.querySelector(".box-arrow");
-        boxArrow.style.transform = "rotate(-180deg) translateY(25%) translateX(-50%)";
-        filterSelectedElement.classList.remove('display-none')
-        filterListElement.classList.remove('display-none')
-        filterSelectedElement.setAttribute(
+      const boxArrow = document.querySelector('.box-arrow')
+      boxArrow.style.transform = 'rotate(-180deg) translateY(25%) translateX(-50%)'
+      filterSelectedElement.classList.remove('display-none')
+      filterListElement.classList.remove('display-none')
+      filterSelectedElement.setAttribute(
         'aria-expanded',
-    // Get opposite value (true === false => false || false === false => true)
-    filterSelectedElement.getAttribute('aria-expanded') === 'false'
-    )
-      } else {
-        filterListClose()
-    }
-  };
-})();
-document.addEventListener("click", arrowToggle);
-
-// Configuration Accessibilité filtre
-buttonSelect.addEventListener('click', ()=>{
-  filterItemsElement.forEach(element => {
-    element.addEventListener('click', (e) => {
-      selectFiltre
-    })       
-    element.addEventListener('focus', (e) => {
-    filterListElement.setAttribute('aria-activedescendant', e.target.id)
-  })
-})
-document.addEventListener('keydown', (e) => {
-  // If already display and press escape just close
-  if (filterSelectedElement.getAttribute('aria-expanded') === 'true') {
-      if( e.key =="Enter"){
-          console.log("enter");
-          e.target.click()
-      } 
-      // l.141 lightbox.js  if( e.key == "Escape") {filterListClose()}
-    }
-})
-})
-
-
-//Savoir si un filtre a la classe valeur caché
-function cacheFiltre(target){
-
-  for(element of filterItemsElement){
-    console.log(element); 
-    console.log(target); 
-    if(element.classList.contains("valeur-cache")){
-      element.classList.remove("valeur-cache")
+        filterSelectedElement.getAttribute('aria-expanded') === 'false')
+    } else {
+      filterListClose()
     }
   }
-  target.classList.add("valeur-cache")
-}
+})()
+document.addEventListener('click', arrowToggle)
 
+// Configuration Accessibilité filtre
+buttonSelect.addEventListener('click', () => {
+  filterItemsElement.forEach(element => {
+    element.addEventListener('click', (e) => {
+      // eslint-disable-next-line no-unused-expressions
+      selectFiltre
+    })
+    element.addEventListener('focus', (e) => {
+      filterListElement.setAttribute('aria-activedescendant', e.target.id)
+    })
+  })
+  document.addEventListener('keydown', (e) => {
+    if (filterSelectedElement.getAttribute('aria-expanded') === 'true') {
+      if (e.key === 'Enter') {
+        e.target.click()
+      }
+      // ligne 141 fichier lightbox.js  if( e.key == "Escape") {filterListClose()}
+    }
+  })
+})
+
+// Savoir si un filtre a la classe valeur caché
+function cacheFiltre (target) {
+  for (const element of filterItemsElement) {
+    if (element.classList.contains('valeur-cache')) {
+      element.classList.remove('valeur-cache')
+    }
+  }
+  target.classList.add('valeur-cache')
+}
 
 // Trier les médias en fonction du filtre utilisé
-async function selectFiltre(allMedias, run){
+async function selectFiltre(allMedias, run) {
   filterItemsElement.forEach(element => {
-    element.addEventListener('click', function() {
-      if(element.id === 'filter-title'){
-        let triParTitre = allMedias.sort((a,b) => {
-                return a.title > b.title ? 1 : -1
-            })
-            displaySelect(triParTitre, run)
-          }
-          else if(element.id === 'filter-popular'){
-            let triParPopularite = allMedias.sort((a,b) => {
-              return a.likes > b.likes ? 1 : -1
-            })
-            displaySelect(triParPopularite, run)
-          }
-          else if(element.id === 'filter-date'){
-            let triParDate =  allMedias.sort((a,b) => {
-              return a.date > b.date ? 1 : -1
-            })
-            displaySelect(triParDate, run)
-          }   
-          
-          cacheFiltre(element)
-          buttonSelect.innerHTML = `${element.innerText}<span class="box-arrow"><i class="fas fa-chevron-down" aria-hidden="false"></i></span>`
+    element.addEventListener('click', function () {
+      if (element.id === 'filter-title') {
+        const triParTitre = allMedias.sort((a, b) => {
+          return a.title > b.title ? 1 : -1
         })
-      })
+        displaySelect(triParTitre, run)
+      } else if (element.id === 'filter-popular') {
+        const triParPopularite = allMedias.sort((a,b) => {
+          return a.likes > b.likes ? 1 : -1
+        })
+        displaySelect(triParPopularite, run)
+      } else if (element.id === 'filter-date') {
+        const triParDate = allMedias.sort((a, b) => {
+          return a.date > b.date ? 1 : -1
+        })
+        displaySelect(triParDate, run)
+      }
+      cacheFiltre(element)
+      buttonSelect.innerHTML = `${element.innerText}<span class="box-arrow"><i class="fas fa-chevron-down" aria-hidden="false"></i></span>`
+    })
+  })
 }
-
 
 // Générer nouvel affichage des medias
-function displaySelect(type, run){
-    const gallery = document.querySelector(".gallery")
-    gallery.innerHTML =""
-    run.displayMedias(type)
-    run.createMediaDOM()
-    likePlus()
-    likeMoins()
-    displayTotalLike()
+function displaySelect (type, run) {
+  const gallery = document.querySelector('.gallery')
+  gallery.innerHTML = ''
+  run.displayMedias(type)
+  run.createMediaDOM()
+  // eslint-disable-next-line no-undef
+  likePlus()
+  // eslint-disable-next-line no-undef
+  likeMoins()
+  // eslint-disable-next-line no-undef
+  displayTotalLike()
 }
-
-  

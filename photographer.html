@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html>
 <html lang="fr">
-
 <head>
   <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
   <meta charset="utf-8">
@@ -9,6 +7,10 @@
   <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
   <!-- fontawesome  -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+   <!-- favicon  -->
+   <link rel="icon" type="image/png" sizes="16x16"  href="/assets/favicon-16x16.png">
+   <meta name="msapplication-TileColor" content="#ffffff">
+   <meta name="theme-color" content="#ffffff">
 
   <title>Fisheye - photographe </title>
 </head>
@@ -20,8 +22,8 @@
 
   <!-- header  -->
   <header role="banner">
-    <a href="index.html" alt="liens image logo vers la page accueil"><img src="assets/images/logo.png" class="logo"
-        alt="logo fisheye" tabindex="1" /></a>
+    <a href="index.html" aria-label="liens image logo vers la page accueil" tabindex="1"><img src="assets/images/logo.png" class="logo"
+        alt="logo fisheye"/></a>
   </header>
 
   <main id="main" aria-hidden="false">
@@ -44,7 +46,7 @@
           
           <ul id="filterList" class="gallerie-media-filters-menu--list" aria-activedescendant="filter_popular" role="menu">
             <li id="filter-date" class="valeur-cache" role="menuitem" aria-label="Trier par date" aria-labelledby="buttonFilter" tabindex="3">Date</li>
-            <li id="filter-popular"  role="menuitem" aria-label="Trier par popularité" aria-current="true" aria-labelledby="buttonFilter" tabindex="3">Popularité<span class="box-arrow"></li>
+            <li id="filter-popular"  role="menuitem" aria-label="Trier par popularité" aria-current="true" aria-labelledby="buttonFilter" tabindex="3">Popularité</li>
             <li id="filter-title" role="menuitem" aria-label="Trier par titre" aria-labelledby="buttonFilter" tabindex="3">Titre</li>
           </ul>
 
@@ -53,7 +55,7 @@
 
 
       <!-- Partie gallerie photo -->
-      <div class="gallery" role="Afficher les photos et videos"></div>
+      <div class="gallery"></div>
     </div>
   </main>
 

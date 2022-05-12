@@ -131,7 +131,6 @@ form input, form textarea {
     height: 68px;
     border: none;
     border-radius: 5px;
-    margin-bottom: px;  
 }
 form textarea{
     height: 150px;
@@ -358,7 +357,7 @@ option .padding{
 .gallerie-media-filters-menu--selected {
     /* display: none; */
     position: relative;
-    top: 100;
+    /* top: 100; */
     left: 0;
     line-height: 50px;
     padding-left: 0;

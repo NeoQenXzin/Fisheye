@@ -5,11 +5,7 @@
 
 class Profil {
   constructor () {
-<<<<<<< HEAD
-    // this.photographersApi = new PhotographerApi('data/photographers.json')
-=======
->>>>>>> 76b45a5a849503242a9846bdb235b5d62ac47fe6
-    this.photographersApi = new PhotographerApi('https://github.com/NeoQenXzin/Front-End-Fisheye/blob/main/./data/photographers.json')
+    this.photographersApi = new PhotographerApi('https://neoqenxzin.github.io/Front-End-Fisheye/data/photographers.json')
     // Je récupère l'id dans l'url
     // const photographeId =  new URL(location.href).searchParams.get('id')
     this.photographeId = new URL(location.href).searchParams.get('id')

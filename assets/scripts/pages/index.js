@@ -1,7 +1,10 @@
 /* eslint-disable no-undef */
 class App {
   constructor () {
-    this.photographersApi = new PhotographerApi('/data/photographers.json')
+    // api local
+    // this.photographersApi = new PhotographerApi('/data/photographers.json')
+    // api github
+    this.photographersApi = new PhotographerApi('https://github.com/NeoQenXzin/Front-End-Fisheye/blob/main/data/photographers.json')
   }
 
   async getPhotographer () {

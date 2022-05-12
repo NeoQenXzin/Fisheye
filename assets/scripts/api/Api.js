@@ -32,7 +32,7 @@ class PhotographerApi extends Api {
     return data.photographers
   }
 
-  async getMedias() {
+  async getMedias () {
     const data = await this.get()
     return data.media
   }

@@ -86,7 +86,7 @@ function displayMediaLightbox (index) {
 
   medias[index].src.slice(-('mp4').length).match('mp4')
     ? sliderImage.innerHTML = `
-        <video controls src='${medias[index].src}' class='img-lightbox'>Video</video>
+        <video controls src='${medias[index].src}' class='img-lightbox' tabindex="1">Video</video>
         <span tabindex='1'>${titreCard[index].innerText}</span>            `
     : sliderImage.innerHTML = `
         <img src='${medias[index].src}'  alt='image du photographe ' class='img-lightbox' data='${medias[index].data}'></img>
@@ -102,7 +102,7 @@ function boucleFinMediaLightBox (index) {
 
   medias[0].src.slice(-('mp4').length).match('mp4')
     ? sliderImage.innerHTML = `
-        <video controls src='${medias[0].src}' class='img-lightbox'>Video</video>
+        <video controls src='${medias[0].src}' class='img-lightbox' tabindex="1">Video</video>
         <span>${titreCard[0].innerText}</span>            `
     : sliderImage.innerHTML = `
         <img src='${medias[0].src}'  alt='image du photographe ' class='img-lightbox' data='${medias[index].data}'></img>
@@ -118,7 +118,7 @@ function boucleDebutMediaLightBox (index) {
 
   medias[medias.length - 1].src.slice(-('mp4').length).match('mp4')
     ? sliderImage.innerHTML = `
-        <video controls src='${medias[medias.length-1].src}' class='img-lightbox">Video</video>
+        <video controls src='${medias[medias.length - 1].src}' class="img-lightbox" tabindex="1">Video</video>
         <span>${titreCard[medias.length - 1].innerText}</span>            `
     : sliderImage.innerHTML = `
         <img src="${medias[medias.length - 1].src}"  alt="image du photographe " class="img-lightbox" data="${medias[index].data}"></img>

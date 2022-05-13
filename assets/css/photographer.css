@@ -40,6 +40,7 @@
 }
 .contact-button:hover, .contact-button:focus {
     background-color: #D3573C;
+    color: #000;
 }
 
 
@@ -248,33 +249,6 @@ form textarea{
     margin: 30px 100px;
 }
 
-/* .filtres-contain {
-    margin-bottom: 50px;
-   
-}
-
-.filtres-contain span {
-    font-weight: bold;
-    font-size: 18px;
-    margin-right: 20px;
-}
-
-.filtres-contain select {
-    border: none;
-    padding: 15px 10px;
-    background: #901C1C;
-    color: white;
-    font-size: 18px;
-    border-radius: 6px;
-    text-decoration: underline;
-    text-underline-position: bottom 10px;
-    width: 150px;
-    appearance: none;
-    
-}
-.filtres-contain option:hover{
-    color: #D3573C;
-} */
 button{
     overflow: hidden;
 }
@@ -284,27 +258,6 @@ button{
     transition: all .4s ease-in-out;
     overflow: hidden;
 }
-/* .button-text{
-    display: inline-block;
-} */
-/* .filtres-contain option {
-    width: 10px !important;
-    height: 50px;
-    border-radius: 8px;
-    padding: 20px;
-}
-.filtres-contain select[input] { 
-    border-radius: 8px;
-    color: red;
-}
-.filtres-contain select:focus {
-    outline: none;
-}
-option .padding{
-    font-size: 40px;
-    color: transparent;
-} */
-
 
 /* FIlter avec list  */
 #buttonFilter {
@@ -326,7 +279,11 @@ option .padding{
 #buttonFilter:hover,
 #buttonFilter:focus {
     background-color: #D3573C;
-    color: #FAFAFA;
+    color: #000;
+}
+#buttonFilter:hover .box-arrow,
+#buttonFilter:focus .box-arrow{
+  color: #FAFAFA;
 }
 .gallerie-media-filters {
     font-size: 18px;
@@ -377,9 +334,9 @@ option .padding{
     /* display: none; */
     list-style: none;
     width: 170px;
-    border-radius: 5px;
-    color: rgb(28, 0, 139);
-    background: rgb(151, 91, 141);
+    border-radius: 0 0 5px 5px;
+    color: rgb(255, 255, 255);
+    background: rgb(255, 255, 255);
     overflow: hidden;
     position: absolute;
     margin: 0;
@@ -405,29 +362,33 @@ option .padding{
 .gallerie-media-filters-menu--list > li::before {
     content: "";
     position: absolute;
-    border-bottom: 1px solid white;
-    width: calc(100% - 22px);
-    bottom : 0;
+    border-top: 1.2px solid white;
+    width: calc(100% - 20px);
+    top : 0;
 }
 
 .gallerie-media-filters-menu--list > li:last-child:before {
     border: none;
+    border-top: 1.2px solid white;
+    content: "";
+    position: absolute;
+    width: calc(100% - 20px);
+    top : 0;
 }
 
 .gallerie-media-filters-menu--list > li:hover,
 .gallerie-media-filters-menu--list > li:focus {
     background-color: #D3573C;   
-    color: #FAFAFA;
+    color: #000;
 }
-/* Fin de filter avec list  */
-
 
 
 /* Permet de masquer l'option dans la liste  */
 .valeur-cache{
     display: none;
-}
+    }
 
+/* Fin de filter avec list  */
 
 /* Gallery */
 .gallery {

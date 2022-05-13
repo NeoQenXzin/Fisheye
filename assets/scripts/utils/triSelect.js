@@ -1,6 +1,6 @@
 // flêche select box
 // let newOrderFilter = Array.from(filterItemsElement)
-const boxArrow = document.querySelector('.box-arrow')
+// const boxArrow = document.querySelector('.box-arrow')
 const buttonSelect = document.querySelector('#buttonFilter')
 const filterSelectedElement = document.querySelector('.gallerie-media-filters-menu--selected')
 const filterListElement = document.querySelector('.gallerie-media-filters-menu--list')
@@ -10,6 +10,9 @@ filterListElement.classList.add('display-none')
 
 // Fermer liste filtre
 function filterListClose () {
+  const boxArrow = document.querySelector('.box-arrow')
+  buttonSelect.style.borderRadius = '5px'
+
   boxArrow.style.transform = 'rotate(0deg) translateY(0)'
   filterSelectedElement.classList.add('display-none')
   filterListElement.classList.add('display-none')
@@ -23,9 +26,9 @@ const arrowToggle = (() => {
   return function ({ target: el }) {
     if (el === buttonSelect) open = !open
     else open = false
+    const boxArrow = document.querySelector('.box-arrow')
 
     if (open) {
-      const boxArrow = document.querySelector('.box-arrow')
       boxArrow.style.transform = 'rotate(-180deg) translateY(25%) translateX(-50%)'
       filterSelectedElement.classList.remove('display-none')
       filterListElement.classList.remove('display-none')
@@ -41,6 +44,7 @@ document.addEventListener('click', arrowToggle)
 
 // Configuration Accessibilité filtre
 buttonSelect.addEventListener('click', () => {
+  buttonSelect.style.borderRadius = '5px 5px 0px 0px'
   filterItemsElement.forEach(element => {
     element.addEventListener('click', (e) => {
       // eslint-disable-next-line no-unused-expressions
@@ -71,7 +75,7 @@ function cacheFiltre (target) {
 }
 
 // Trier les médias en fonction du filtre utilisé
-async function selectFiltre(allMedias, run) {
+async function selectFiltre (allMedias, run) {
   filterItemsElement.forEach(element => {
     element.addEventListener('click', function () {
       if (element.id === 'filter-title') {
@@ -80,7 +84,7 @@ async function selectFiltre(allMedias, run) {
         })
         displaySelect(triParTitre, run)
       } else if (element.id === 'filter-popular') {
-        const triParPopularite = allMedias.sort((a,b) => {
+        const triParPopularite = allMedias.sort((a, b) => {
           return a.likes > b.likes ? 1 : -1
         })
         displaySelect(triParPopularite, run)
@@ -90,8 +94,8 @@ async function selectFiltre(allMedias, run) {
         })
         displaySelect(triParDate, run)
       }
-      cacheFiltre(element)
       buttonSelect.innerHTML = `${element.innerText}<span class="box-arrow"><i class="fas fa-chevron-down" aria-hidden="false"></i></span>`
+      cacheFiltre(element)
     })
   })
 }

@@ -5,7 +5,10 @@
 
 class Profil {
   constructor () {
-    this.photographersApi = new PhotographerApi('https://neoqenxzin.github.io/Front-End-Fisheye/data/photographers.json')
+    // api local
+    this.photographersApi = new PhotographerApi('/data/photographers.json')
+    // api github
+    // this.photographersApi = new PhotographerApi('https://neoqenxzin.github.io/Front-End-Fisheye/data/photographers.json')
     // Je récupère l'id dans l'url
     // const photographeId =  new URL(location.href).searchParams.get('id')
     this.photographeId = new URL(location.href).searchParams.get('id')
@@ -23,7 +26,7 @@ class Profil {
     // J'appel mon template qui se trouve dans PhotographerFactory et je lui passe photographe comme data
     const Template = new PhotographerFactory()
     const photographerModel = Template.photographerFactory(photographe);
-    photographerModel.getProfilUserDOM();
+    photographerModel.getProfilUserDOM()
   }
 
   // getAllMedia

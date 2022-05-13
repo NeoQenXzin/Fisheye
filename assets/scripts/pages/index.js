@@ -2,9 +2,9 @@
 class App {
   constructor () {
     // api local
-    // this.photographersApi = new PhotographerApi('/data/photographers.json')
+    this.photographersApi = new PhotographerApi('/data/photographers.json')
     // api github
-    this.photographersApi = new PhotographerApi('https://neoqenxzin.github.io/Front-End-Fisheye/data/photographers.json')
+    // this.photographersApi = new PhotographerApi('https://neoqenxzin.github.io/Front-End-Fisheye/data/photographers.json')
   }
 
   async getPhotographer () {

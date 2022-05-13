@@ -343,6 +343,7 @@ button{
     padding: 0;
     line-height: 50px;
     z-index: 3;
+    box-shadow: 0 5px 3px rgba(0, 0, 0, 0.107);
 }
 
 .gallerie-media-filters-menu--list > li {

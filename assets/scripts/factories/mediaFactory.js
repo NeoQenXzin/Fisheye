@@ -31,15 +31,15 @@ class MediaFactory {
                         `
                 <div class="photo-card">
                 <i class="fas fa-video"></i>
-                <video controls src="${videoMp4}" class="img-gallery" name="${video}" tabindex="7" alt="video ${video} ouvre video dans lighting-box">video ${title}</video>
+                <video controls src="${videoMp4}" class="img-gallery" name="${video}" tabindex="7" aria-description="video ${title}"></video>
                 <h2> <span class="title-card">${title}</span>
                 <span class="like-card"> 
                 <span class="nbre-like">${likes} </span>
                    <span class="liker like-vide">   
-                       <i class="far fa-heart" tabindex="7" aria-label="ajouter j'aime" role="bouton"></i>
+                       <i class="far fa-heart" tabindex="7" aria-label="ajouter j'aime en cliquant" role="bouton"></i>
                    </span>
                    <span class="liker like-plein"> 
-                       <i class="fas fa-heart" tabindex="7" aria-label="retirer j'aime" role="bouton"></i>
+                       <i class="fas fa-heart" tabindex="7" aria-label="retirer j'aime en cliquant" role="bouton"></i>
                    </span>
                    </span>
 
@@ -55,15 +55,15 @@ class MediaFactory {
         gallery.innerHTML +=
                     `
                 <div class="photo-card">
-                <img src="${picture}" name="${image}" alt="image du photographe ${image} ouvre photo dans lighting-box" class="img-gallery" tabindex="7"></img>
+                <img src="${picture}" name="${image}" alt="image ${image} ouvre photo dans lighting-box" class="img-gallery" tabindex="7"></img>
                 <h2> <span class="title-card">${title}</span>
                 <span class="like-card"> 
                 <span class="nbre-like">${likes} </span>
                    <span class="liker like-vide">   
-                       <i class="far fa-heart" tabindex="7" aria-label="ajouter j'aime" role="bouton"></i>
+                       <i class="far fa-heart" tabindex="7" aria-label="ajouter j'aime en cliquant" role="bouton"></i>
                    </span>
                    <span class="liker like-plein"> 
-                       <i class="fas fa-heart" tabindex="7" aria-label="retirer j'aime" role="bouton"></i>
+                       <i class="fas fa-heart" tabindex="7" aria-label="retirer j'aime en cliquant" role="bouton"></i>
                    </span>
                    </span>
 
@@ -91,7 +91,7 @@ class MediaFactory {
             `
     }
 
-    function getLightboxVideoDOM() {
+    function getLightboxVideoDOM () {
       // template lightbox
 
       const lightbox = document.querySelector('.lightbox')
@@ -103,7 +103,7 @@ class MediaFactory {
             <img src="assets/icons/chevron-right.svg" onclick="nextSlide()" class="chevron-right" alt="Chevron Slide suivante" tabindex="1"/>
             </header>
             <div class="image-contain"tabindex="1">
-            <video controls src="${videoMp4}" class="img-lightbox" name="${video}" tabindex="1">Ici la description alternative</video>
+            <video controls src="${videoMp4}" class="img-lightbox" name="${video}" tabindex="1">Vidéo ${video}</video>
             <span tabindex="1">${data.title}</span>
             </div>
             `

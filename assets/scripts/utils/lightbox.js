@@ -23,7 +23,7 @@ function displayLightbox () {
 }
 
 // Fermer lightbox
-function closeLightbox() {
+function closeLightbox () {
   const lightboxModal = document.getElementById('lightbox-modal')
 
   lightboxModal.style.display = 'none'
@@ -46,8 +46,6 @@ function nextSlide () {
   let index = 0
   // Pour chaque media
   for (let media of medias) {
-    // medias.forEach(() => {
-    // si l'attribut src = attribut de l'image de la lightbox
     if (media.src === imageActuelle.src && index < medias.length - 1) {
       index++
       return displayMediaLightbox(index)
@@ -67,7 +65,6 @@ function previousSlide () {
 
   // Je demarre de l'index 0 , il faudra le remplacer par l'image surlaquel on a cliqué
   for (let media of medias) {
-  // Pas très propre car remplacer par second if, image actuelle a corriger/ Boucle foreach peut etre pas idéal       
     if (imageActuelle.src !== media && index === 0) {
       boucleDebutMediaLightBox(index)
     } else if (media.src === imageActuelle.src && index > -1) {
@@ -128,7 +125,6 @@ function boucleDebutMediaLightBox (index) {
 
 // Fermer avec esc lightbox
 document.addEventListener('keydown', e => {
-// let mediaCard = document.querySelectorAll(".photo-card")
   if (e.key === 'Escape') {
     // eslint-disable-next-line no-undef
     filterListClose()

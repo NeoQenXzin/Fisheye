@@ -10,7 +10,6 @@ class Profil {
     // api github
     this.photographersApi = new PhotographerApi('https://neoqenxzin.github.io/Front-End-Fisheye/data/photographers.json')
     // Je récupère l'id dans l'url
-    // const photographeId =  new URL(location.href).searchParams.get('id')
     this.photographeId = new URL(location.href).searchParams.get('id')
   }
 
@@ -23,14 +22,19 @@ class Profil {
         return e
       }
     })
+    return photographe
+  }
+
+  async displayProfilHeader () {
+    const photographe = await this.getProfil()
     // J'appel mon template qui se trouve dans PhotographerFactory et je lui passe photographe comme data
     const Template = new PhotographerFactory()
-    const photographerModel = Template.photographerFactory(photographe);
+    const photographerModel = Template.photographerFactory(photographe)
     photographerModel.getProfilUserDOM()
   }
 
   // getAllMedia
-  async getAllMediaPhotographer() {
+  async getAllMediaPhotographer () {
     // Je récupère mes medias .json
     const mediaData = await this.photographersApi.getMedias()
     // Je récupère toute les média de mon photographe dans medias
@@ -44,7 +48,7 @@ class Profil {
   }
 
   // Afficher mes medias
-  async displayMedias(medias) {
+  async displayMedias (medias) {
     const Template = new MediaFactory()
     // J'appel mon template avec une boucle pour construire chaque carte photo
     for (let i = 0; i < medias.length; i++) {
@@ -54,9 +58,9 @@ class Profil {
     }
   }
 
-  // Recuperer data d'un media
+  // Permet en cliquant sur un média de la gallerie d'afficher le DOM de la lightbox
   async createMediaDOM () {
-    // Je récupère toutes les photos correspondantes au photographe
+    // Je récupère toutes les photos et videos correspondantes au photographe
     const Template = new MediaFactory()
     let medias = await this.getAllMediaPhotographer()
 
@@ -68,7 +72,7 @@ class Profil {
         // Je recupère le nom de la photo sur laquelle je clic
         let dataAttribute = e.target.getAttribute('name')
 
-        // Je crée une variable pour récupérer la photo de mes médias ayant le même nom que celle sur laquelle je clic
+        // Je crée une variable pour récupérer la photo ou la video de mes médias ayant le même nom que celle sur laquelle je clic
         let photoMedia = []
         let videoMedia = []
 
@@ -80,8 +84,7 @@ class Profil {
             photoMedia.push(medias[i])
             let gallerieMedia = Template.mediaFactory(photoMedia[0])
             gallerieMedia.getLightboxPhotoDOM()
-          }
-          else if (dataAttribute == medias[i].video) {
+          } else if (dataAttribute == medias[i].video) {
             videoMedia.push(medias[i])
             let gallerieMedia = Template.mediaFactory(videoMedia[0])
             gallerieMedia.getLightboxVideoDOM()
@@ -96,13 +99,10 @@ class Profil {
 // Je lance la fonction de ma class
 async function main () {
   const run = new Profil()
-  run.getProfil()
+  run.displayProfilHeader()
   const allMedias = await run.getAllMediaPhotographer()
   run.displayMedias(allMedias)
   run.createMediaDOM()
-  // const closeLightboxBtn = document.querySelector('.cross')
-  // incrémente tout les likes ajoutés a chaque photo par l'utilisateur
-  // let likeUtilisateur = 0
   selectFiltre(allMedias, run)
   likePlus()
   likeMoins()

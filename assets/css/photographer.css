@@ -140,6 +140,8 @@ form textarea{
 .no-scroll{
     overflow: hidden;
 }
+
+
 /* Lightbox  */
 #lightbox-modal{
     display: none;
@@ -244,7 +246,7 @@ form textarea{
     object-fit: cover;
 }
 
-/* css filtres */
+/* Partie filtres */
 .gallerie-media {
     margin: 30px 100px;
 }
@@ -259,7 +261,6 @@ button{
     overflow: hidden;
 }
 
-/* FIlter avec list  */
 #buttonFilter {
     justify-content: space-between;
     font-weight: bold;
@@ -326,9 +327,6 @@ button{
     pointer-events: none;
 }
 
-.display-none {
-    display: none;
-}
 
 .gallerie-media-filters-menu--list {
     /* display: none; */
@@ -356,7 +354,6 @@ button{
     border: none;
     background-color:#901C1C;
     cursor: pointer;
-    /* border-bottom: 1px solid white; */
     position: relative;
 }
 
@@ -383,13 +380,15 @@ button{
     color: #000;
 }
 
-
 /* Permet de masquer l'option dans la liste  */
+.display-none {
+    display: none;
+}
 .valeur-cache{
     display: none;
     }
-
-/* Fin de filter avec list  */
+    
+/* Fin de partie Filtre */
 
 /* Gallery */
 .gallery {
@@ -416,10 +415,6 @@ button{
     color: #FAFAFA;
     text-shadow: 1px 0 5px #901C1C;
 }
-/* .photo-card .fa-video:hover {
-    color: #000;
-    text-shadow: 1px 0 5px #901C1C;
-} */
 
 .photo-card h2{
     color: #901C1C;
@@ -428,8 +423,8 @@ button{
     position: relative;
     display: flex;
     justify-content: space-between;
-    /* margin-top: 0px; */
 }
+
 .photo-card h2 .title-card{
     
    position: absolute;
@@ -451,17 +446,17 @@ button{
     object-position: 50% 25%;
     /* correction bug white space  */
     vertical-align: middle;
-    cursor: pointer;
-    
+    cursor: pointer;  
 }
+
 .image-contain img, .image-contain video{
-    animation: appear .3s ease-in-out;
-    
+    animation: appear .3s ease-in-out; 
 }
+
 .img-lightbox{
     z-index: 13;
-
 }
+
 @keyframes appear {
     from {
         opacity: 0;
@@ -470,6 +465,7 @@ button{
         opacity: 1;
     }
 }
+
 .price{
     position: fixed;
     bottom: 0px;

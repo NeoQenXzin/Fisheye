@@ -1,13 +1,9 @@
-# Base de code du projet P6 - Parcours Front-end
+# Fisheye
+## 🎓 p6 ocr
 
-## Démarrer le projet
 
-Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.
+![image](https://github.com/NeoQenXzin/Front-End-Fisheye/assets/66415285/d6d08fa8-84d4-456c-8d2c-8539e10ff6c4)
+![image](https://github.com/NeoQenXzin/Front-End-Fisheye/assets/66415285/045bd120-87e6-4311-ad51-c1936a6e94dc)
 
-# erreur relever
-Couleur maquette incorrect (#D3573C)
-Nom photo repertoire faute d'orthographe par rapport au json
 
-# autre
-nom repertoire photographe transformer en leur repertoire id
-Pour faciliter la correspondance
+

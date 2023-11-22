@@ -8,7 +8,7 @@ class Profil {
     // api local
     // this.photographersApi = new PhotographerApi('/data/photographers.json')
     // api github
-    this.photographersApi = new PhotographerApi('https://neoqenxzin.github.io/Front-End-Fisheye/data/photographers.json')
+    this.photographersApi = new PhotographerApi('https://neoqenxzin.github.io/Fisheye/data/photographers.json')
     // Je récupère l'id dans l'url
     this.photographeId = new URL(location.href).searchParams.get('id')
   }
